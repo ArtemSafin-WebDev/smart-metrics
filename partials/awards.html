@@ -1,0 +1,16 @@
+<section class="awards">
+    <div class="awards__content">
+        <h2 class="awards__heading">
+            Достижения и&nbsp;награды
+        </h2>
+        <div class="awards__slider">
+            <ul class="awards__list">
+                {{#each awards }}
+                    <li class="awards__list-item">
+                        {{> awards-card }}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</section>

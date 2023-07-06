@@ -1,0 +1,396 @@
+.solutions {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 19rem;
+  padding-top: 8rem;
+  padding-bottom: 10rem;
+  background: #f2f5f8;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 6.8rem;
+    padding-top: 5rem;
+    padding-bottom: 3.8rem;
+    overflow: hidden;
+  }
+}
+
+.solutions__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+}
+
+.solutions__top-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 2.4rem;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+}
+
+.solutions__heading {
+  font-size: 6.4rem;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.1028rem;
+
+  @include breakpoint(mobile) {
+    font-size: 3.6rem;
+    font-family: Onest;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.072rem;
+  }
+}
+
+.solutions__nav {
+  @include breakpoint(mobile) {
+  }
+}
+
+.solutions__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+
+  @include breakpoint(mobile) {
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+    flex-shrink: 0;
+
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 calc(-1 * var(--content-padding));
+    padding: 0 var(--content-padding);
+    scroll-padding-left: var(--content-padding);
+    @include noScrollbar;
+    display: flex;
+    scroll-snap-type: x mandatory;
+  }
+}
+.solutions__nav-list-item {
+  flex-shrink: 0;
+  @include breakpoint(mobile) {
+    scroll-snap-align: start;
+  }
+}
+
+.solutions__nav-link {
+  display: block;
+  padding: 1.9rem 3.2rem;
+  font-size: 1.8rem;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  transition: color 0.2s, border-color 0.2s;
+  border-radius: 50rem;
+  border: 1px solid #dfe4ea;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &:active {
+    color: var(--primary-color);
+  }
+
+  &.active {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    cursor: default;
+  }
+
+  @include breakpoint(mobile) {
+    padding: 1.1rem 2rem;
+    font-size: 1.4rem;
+    border-radius: 99.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
+
+.solutions__tabs-items {
+  position: relative;
+}
+
+.solutions__tabs-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0s linear 0.4s;
+
+  &.active {
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    visibility: inherit;
+    transition: opacity 0.4s, visibility 0.4s;
+  }
+}
+
+.solutions__row {
+  @include breakpointMF(small-tablet) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-gap: 2.4rem;
+  }
+}
+
+.solutions__photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3.2rem;
+
+  @include breakpointMF(small-tablet) {
+    min-height: 68rem;
+    grid-column: 1 / 5;
+  }
+
+  @include breakpoint(mobile) {
+    display: none;
+  }
+}
+
+.solutions__photo-card-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.solutions__details-card {
+  border-radius: 3.2rem;
+  background: #418dd9;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../images/decor/solutions-card-decor.svg");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: 42.8rem auto;
+
+  color: white;
+
+  @include breakpointMF(small-tablet) {
+    grid-column: 5 / -1;
+    min-height: 68rem;
+  }
+
+  @include breakpoint(mobile) {
+    border-radius: 1.6rem;
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    background-image: url("../images/decor/solutions-card-decor-mobile.svg");
+    background-size: 90% auto;
+    background-position: right bottom;
+  }
+}
+
+.solutions__details-card-top {
+  padding: 5.8rem 6.8rem;
+
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.solutions__details-card-content {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpointMF(small-tablet) {
+    width: 30%;
+    flex-grow: 1;
+    gap: 3rem;
+    align-self: stretch;
+  }
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.solutions__details-card-title {
+  font-size: 6.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.128rem;
+
+  @include breakpoint(mobile) {
+    font-size: 3.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.072rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+.solutions__details-card-text {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.072rem;
+  max-width: 50rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    max-width: none;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    margin-bottom: 3.2rem;
+  }
+}
+
+.solutions__details-card-link {
+  @include whiteBtn;
+  @include breakpointMF(small-tablet) {
+    padding-left: 6.5rem;
+    padding-right: 6.5rem;
+    margin-top: auto;
+  }
+
+  @include breakpoint(mobile) {
+    order: 20;
+    margin-top: 3.5rem;
+  }
+}
+
+.solutions__details-card-image-container {
+  position: relative;
+  flex-shrink: 0;
+  width: 31.2rem;
+  height: 31.2rem;
+  margin-top: 2.5rem;
+
+  @include breakpoint(mobile) {
+    position: absolute;
+    width: 15rem;
+    height: 15rem;
+    margin-top: auto;
+    right: -2rem;
+    bottom: -3rem;
+  }
+}
+
+.solutions__details-card-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.solutions__details-card-bottom {
+  @include breakpointMF(small-tablet) {
+    border-top: 1px solid rgba(white, 0.2);
+    padding-left: 6.8rem;
+    padding-right: 6.8rem;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.solutions__details-card-features-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: 2rem;
+
+  @include breakpoint(mobile) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 3rem;
+  }
+}
+
+.solutions__details-card-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  @include breakpoint(mobile) {
+    gap: 0.4rem;
+  }
+}
+
+.solutions__details-card-feature-amount {
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.09rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.048rem;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 3rem;
+    height: 2.4rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url("../images/decor/white-mark.svg");
+
+    @include breakpoint(mobile) {
+      width: 2.4rem;
+      height: 1.9rem;
+    }
+  }
+}
+
+.solutions__details-card-feature-desc {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+
+  @include breakpoint(mobile) {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}

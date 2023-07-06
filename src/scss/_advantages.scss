@@ -1,0 +1,188 @@
+.advantages {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 16rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 5rem;
+  }
+}
+
+.advantages__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+}
+
+.advantages__heading {
+  @include sectionHeading;
+  margin-bottom: 6rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 3.2rem;
+  }
+}
+
+.advantages__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 2.4rem;
+
+  @include breakpoint(mobile) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-gap: 1.2rem;
+  }
+}
+
+.advantages__list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.advantages__card {
+  display: flex;
+  flex-direction: column;
+  padding: 3.2rem;
+  padding-top: 2.8rem;
+  border-radius: 1.6rem;
+  background: #f2f5f8;
+  gap: 1.2rem;
+  min-height: 27rem;
+
+  @include breakpoint(mobile) {
+    min-height: 15.4rem;
+    padding: 2.4rem;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+.advantages__card-icon {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+  margin-bottom: auto;
+
+  @include breakpoint(mobile) {
+    width: 2.6rem;
+    height: 2.6rem;
+    flex-shrink: 0;
+  }
+}
+
+.advantages__card-content {
+  display: contents;
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 30%;
+    flex-grow: 1;
+    padding-top: 0.2rem;
+  }
+}
+
+.advantages__card-title {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.048rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.036rem;
+  }
+}
+
+.advantages__card-text {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
+
+.advantages__demo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1.2rem;
+  border-radius: 1.6rem;
+  color: white;
+  background: #418dd9;
+  background-image: url("../images/decor/advantages-card.webp");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 32rem auto;
+  min-height: 27rem;
+  padding: 3.2rem;
+
+  @include breakpoint(mobile) {
+    padding: 2.4rem;
+    padding-bottom: 4rem;
+    min-height: auto;
+    gap: 1rem;
+    background-size: 17rem auto;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+  &:link,
+  &:visited {
+    color: white;
+  }
+  svg {
+    width: 2.2rem;
+    height: 2.2rem;
+    fill: currentColor;
+    flex-shrink: 0;
+    margin-top: auto;
+
+    @include breakpoint(mobile) {
+      width: 2rem;
+      height: 2rem;
+      margin-top: 1.1rem;
+    }
+  }
+}
+
+.advantages__demo-title {
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.09rem;
+}
+
+.advantages__demo-text {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  max-width: 31rem;
+}
+
+.advantages__demo-content {
+  display: contents;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    flex-grow: 1;
+    gap: 1rem;
+  }
+}

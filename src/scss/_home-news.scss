@@ -1,0 +1,129 @@
+.home-news {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 16rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 6.8rem;
+  }
+}
+
+.home-news__inner {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+
+  @include breakpoint(mobile) {
+    gap: 0;
+  }
+}
+
+.home-news__top-row {
+  @include breakpointMF(small-tablet) {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.home-news__heading {
+  @include sectionHeading;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 2.8rem;
+  }
+}
+
+.home-news__show-more {
+  @include breakpointMF(small-tablet) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 145%;
+    color: rgba(31, 38, 45, 0.3);
+    transition: color 0.2s;
+    &:link,
+    &:visited {
+      color: rgba(31, 38, 45, 0.3);
+    }
+    & > svg {
+      flex-shrink: 0;
+      width: 1.4rem;
+      height: 1.4rem;
+      fill: currentColor;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+
+    &:active {
+      color: var(--primary-color);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    display: block;
+    text-align: center;
+    order: 10;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    letter-spacing: -0.048rem;
+    padding: 1.7rem 3.4rem;
+    border-radius: 1.6rem;
+    border: 1px solid #dfe4ea;
+
+    svg {
+      display: none;
+    }
+  }
+}
+
+.home-news__slider {
+  @include breakpoint(mobile) {
+    margin-bottom: 1.6rem;
+  }
+  .swiper {
+    overflow: visible;
+  }
+
+  @include breakpointMF(small-tablet) {
+    .swiper-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-gap: 2.4rem;
+    }
+  }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    box-sizing: border-box;
+
+    @include breakpoint(mobile) {
+      width: 30.7rem;
+      flex-shrink: 0;
+      margin-right: 0.8rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

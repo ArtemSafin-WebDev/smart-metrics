@@ -1,0 +1,27 @@
+<section class="home-news">
+    <div class="home-news__inner">
+        <div class="home-news__top-row">
+            <h2 class="home-news__heading">
+                Новости
+            </h2>
+            <a href="#" class="home-news__show-more">
+                Смотреть все
+                <svg width="14" height="14" aria-hidden="true">
+                    <use xlink:href="#fat-arrow-right"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="home-news__slider js-home-news-slider">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    {{#each news}}
+                        <div class="swiper-slide">
+                            {{> news-card }}
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

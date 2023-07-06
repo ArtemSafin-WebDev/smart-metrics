@@ -1,0 +1,327 @@
+.page-footer {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 6rem;
+  @include breakpoint(mobile) {
+    margin-bottom: 2.4rem;
+  }
+}
+
+.page-footer__inner {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+  background-color: var(--dark-bg);
+  color: white;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  border-radius: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+
+  @include breakpoint(mobile) {
+    padding: 2.4rem;
+    gap: 8.4rem;
+  }
+}
+
+.page-footer__top-row {
+  @include breakpointMF(small-tablet) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-gap: 2.4rem;
+    align-items: flex-start;
+  }
+}
+
+.page-footer__logo {
+  @include breakpointMF(small-tablet) {
+    grid-column: 1 / 5;
+    margin-left: 5.4rem;
+  }
+
+  @include breakpoint(mobile) {
+    margin-bottom: 3.2rem;
+    display: block;
+  }
+}
+
+.page-footer__logo-image {
+  display: block;
+  height: auto;
+  width: 25.4rem;
+
+  @include breakpoint(mobile) {
+    width: 19.2rem;
+  }
+}
+
+.page-footer__nav {
+  @include breakpointMF(small-tablet) {
+    grid-column: 5 / 8;
+    & > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      align-items: flex-start;
+      & > li {
+        & > a {
+          font-size: 2.4rem;
+          font-family: Onest;
+          font-weight: 500;
+          line-height: 130%;
+          letter-spacing: -0.048rem;
+          display: block;
+          @media (hover: hover) {
+            &:hover {
+              color: var(--primary-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoint(mobile) {
+    display: none;
+  }
+}
+
+.page-footer__subscribe {
+  @include breakpointMF(small-tablet) {
+    grid-column: 8 / -1;
+    padding-left: 6rem;
+    padding-right: 6.8rem;
+  }
+}
+
+.page-footer__subscribe-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-footer__subscribe-text {
+  font-size: 1.6rem;
+  line-height: 140%;
+  max-width: 32rem;
+  margin-bottom: 2rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    margin-bottom: 2.4rem;
+    max-width: none;
+  }
+}
+
+.page-footer__subscribe-wrapper {
+  margin-bottom: 1.6rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.page-footer__subscribe-input-wrapper {
+  display: flex;
+  padding: 0.8rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  align-items: center;
+  gap: 1rem;
+  transition: color 0.2s, background-color 0.2s;
+
+  &:focus-within {
+    border-color: var(--primary-color);
+  }
+
+  &:has(.not-valid) {
+    border-color: #f60a18;
+    background: rgba(246, 10, 24, 0.1);
+  }
+}
+
+.page-footer__subscribe-input {
+  width: 30%;
+  flex-grow: 1;
+  font-size: 2.4rem;
+  color: white;
+  font-weight: 500;
+  line-height: 130%;
+
+  padding: 0 2.2rem;
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.036rem;
+    padding: 0 1.6rem;
+  }
+}
+
+.page-footer__subscribe-submit {
+  padding: 0.2rem 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  flex-shrink: 0;
+  & svg {
+    width: 4rem;
+    height: 4rem;
+    fill: white;
+    flex-shrink: 0;
+  }
+
+  @include breakpoint(mobile) {
+    padding: 0;
+    width: 5.6rem;
+    height: 3.2rem;
+    overflow: hidden;
+    position: relative;
+    svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.page-footer__policy {
+  font-size: 1.4rem;
+  line-height: 130%;
+  color: rgba(255, 255, 255, 0.3);
+  & > a {
+    transition: color 0.2s, text-decoration-color 0.2s;
+    text-decoration: underline;
+
+    @media (hover: hover) {
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
+
+.page-footer__bottom-row {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.4rem;
+
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+
+  @include breakpointMF(small-tablet) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-gap: 2.4rem;
+    align-items: flex-start;
+  }
+
+  @include breakpoint(mobile) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 3rem;
+    grid-row-gap: 1.2rem;
+    align-items: flex-start;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    grid-template-areas: "copyright policy" "specs madeby";
+  }
+}
+
+.page-footer__copyright {
+  @include breakpointMF(small-tablet) {
+    grid-column: 1 / 5;
+    margin-left: 5.4rem;
+  }
+
+  @include breakpoint(mobile) {
+    grid-area: copyright;
+  }
+}
+
+.page-footer__instruction {
+  @media (hover: hover) {
+    &:hover {
+      color: white;
+    }
+  }
+  @include breakpointMF(small-tablet) {
+    grid-column: 5 / 8;
+  }
+
+  @include breakpoint(mobile) {
+    grid-area: specs;
+  }
+}
+
+.page-footer__agreement {
+  @media (hover: hover) {
+    &:hover {
+      color: white;
+    }
+  }
+  @include breakpointMF(small-tablet) {
+    grid-column: 8 / 11;
+    margin-left: 6rem;
+  }
+
+  @include breakpoint(mobile) {
+    grid-area: policy;
+  }
+}
+
+.page-footer__made-by {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  @media (hover: hover) {
+    &:hover {
+      color: white;
+    }
+  }
+
+  @include breakpointMF(small-tablet) {
+    grid-column: 11 / -1;
+    margin-right: 6.8rem;
+    justify-self: flex-end;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  @include breakpoint(mobile) {
+    gap: 0.5rem;
+    grid-area: madeby;
+  }
+}
+
+.page-footer__made-by-logo {
+  width: 8rem;
+  height: auto;
+
+  @include breakpoint(mobile) {
+    width: 6.8rem;
+  }
+}

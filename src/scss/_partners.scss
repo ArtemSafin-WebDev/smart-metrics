@@ -1,0 +1,78 @@
+.partners {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 20rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 6.8rem;
+    overflow: hidden;
+  }
+}
+
+.partners__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+}
+
+.partners__heading {
+  @include sectionHeading;
+  margin-bottom: 6rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 3.2rem;
+  }
+}
+
+.partners__slider {
+  .swiper {
+    overflow: visible;
+  }
+
+  .swiper-wrapper {
+    @include breakpointMF(small-tablet) {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-gap: 2.4rem;
+    }
+  }
+
+  .swiper-slide {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    @include breakpoint(mobile) {
+      width: 16rem;
+      flex-shrink: 0;
+      margin-right: 0.8rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.partners__card {
+  border-radius: 1.6rem;
+  background: #f2f5f8;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 60%;
+  }
+}
+
+.partners__card-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

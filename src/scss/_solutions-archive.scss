@@ -1,0 +1,123 @@
+.solutions-archive {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 16rem;
+  padding-top: 20rem;
+  @include breakpoint(mobile) {
+    margin-bottom: 6.8rem;
+    padding-top: 9rem;
+  }
+}
+
+.solutions-archive__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.solutions-archive__heading {
+  font-size: 10rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.3rem;
+  margin-bottom: 6rem;
+
+  @include breakpoint(mobile) {
+    font-size: 4.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.088rem;
+    margin-bottom: 2.4rem;
+  }
+}
+.solutions-achive__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 2.4rem;
+
+  @include breakpoint(mobile) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-gap: 1.2rem;
+  }
+}
+
+.solutions-archive__list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.solutions-archive__card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 4rem;
+  overflow: hidden;
+  border-radius: 1.6rem;
+  background: #f2f5f8;
+  min-height: 35rem;
+  background-image: url("../images/decor/solutions-decor.svg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: auto 100%;
+  position: relative;
+  z-index: 1;
+  svg {
+    width: 2.2rem;
+    height: 2.2rem;
+    fill: currentColor;
+  }
+
+  @include breakpoint(mobile) {
+    padding: 2.4rem;
+    min-height: 15.7rem;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      .solutions-archive__card-image {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.solutions-archive__card-title {
+  font-size: 3rem;
+  max-width: 28rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.09rem;
+  margin-bottom: 1rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.06rem;
+    max-width: 20rem;
+  }
+}
+
+.solutions-archive__card-image-wrapper {
+  display: contents;
+}
+
+.solutions-archive__card-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  z-index: -1;
+  pointer-events: none;
+  transition: transform 0.5s;
+  right: -2rem;
+}
