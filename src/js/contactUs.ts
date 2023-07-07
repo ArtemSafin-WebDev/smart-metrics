@@ -4,29 +4,24 @@ import { ANIMATION_START } from "./constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function about() {
-  const about = document.querySelector(".about");
-  if (!about) return;
-  const content = about.querySelector(".about__content");
+export default function contactUs() {
+  const contactUs = document.querySelector(".contact-us");
+  if (!contactUs) return;
+
+  const content = contactUs.querySelector(".contact-us__content");
 
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: about,
+      trigger: contactUs,
       start: ANIMATION_START,
     },
   });
+
   tl.fromTo(
     content,
     {
       autoAlpha: 0,
-      y: 30,
     },
-    {
-      autoAlpha: 1,
-      duration: 0.6,
-      stagger: 0.2,
-      y: 0,
-      ease: "power1.out",
-    }
+    { duration: 1, autoAlpha: 1, y: 0, ease: "power1.out" }
   );
 }

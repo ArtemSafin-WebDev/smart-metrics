@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ANIMATION_START } from "./constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +15,7 @@ export default function advantages() {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: advantages,
-      start: "top center",
+      start: ANIMATION_START,
     },
   });
 

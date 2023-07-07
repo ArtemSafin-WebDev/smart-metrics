@@ -28,6 +28,7 @@ body {
   color: var(--text-color);
   font-family: var(--onest);
   overscroll-behavior: none;
+  overflow-anchor: none;
 }
 
 body.menu-open {

@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ANIMATION_START } from "./constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +13,7 @@ export default function awards() {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: awards,
-      start: "top center",
+      start: ANIMATION_START,
     },
   });
 

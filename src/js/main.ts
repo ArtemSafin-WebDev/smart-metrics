@@ -19,6 +19,8 @@ import numbers from "./numbers";
 import partners from "./partners";
 import awards from "./awards";
 import news from "./news";
+import contactUs from "./contactUs";
+import solutionsArchive from "./solutionsArchive";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -41,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   partners();
   awards();
   news();
+  contactUs();
+  solutionsArchive();
 });
 
 window.addEventListener("load", () => {
