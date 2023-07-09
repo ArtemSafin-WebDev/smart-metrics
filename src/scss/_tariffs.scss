@@ -4,12 +4,12 @@
     [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
     [content-end] 1fr [main-end];
   grid-gap: var(--content-padding, 0);
-  padding-top: 19rem;
-  padding-bottom: 16rem;
+  padding-top: 20rem;
+  margin-bottom: 16rem;
 
   @include breakpoint(mobile) {
     padding-top: 9rem;
-    padding-bottom: 6.8rem;
+    margin-bottom: 6.8rem;
   }
 }
 
@@ -19,9 +19,7 @@
 }
 
 .tariffs__heading {
-  font-family: Onest;
   font-size: 10rem;
-
   font-weight: 500;
   line-height: 110%;
   letter-spacing: -0.3rem;

@@ -42,13 +42,6 @@
   }
 
   @include breakpoint(mobile) {
-    // margin: 0 calc(-1 * var(--content-padding));
-    // padding: 0 var(--content-padding);
-    // overflow-y: hidden;
-    // -webkit-overflow-scrolling: touch;
-    // display: flex;
-    // @include noScrollbar;
-    // scroll-snap-type: x mandatory;
     margin-bottom: 2.8rem;
   }
 }

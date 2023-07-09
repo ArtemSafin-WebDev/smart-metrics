@@ -22,6 +22,7 @@ import news from "./news";
 import contactUs from "./contactUs";
 import solutionsArchive from "./solutionsArchive";
 import tariffsPage from "./tariffsPage";
+import documentation from "./documentation";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   contactUs();
   solutionsArchive();
   tariffsPage();
+  documentation();
 });
 
 window.addEventListener("load", () => {
