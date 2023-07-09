@@ -1,0 +1,58 @@
+<div class="news-archive">
+    <div class="news-archive__content">
+        <h1 class="news-archive__heading">
+            База знаний
+        </h1>
+        <ul class="news-archive__links-list">
+            <li class="news-archive__links-list-item">
+                <a href="#" class="news-archive__link active">
+                    Новости
+                </a>
+            </li>
+            <li class="news-archive__links-list-item">
+                <a href="#" class="news-archive__link">
+                    Статьи
+                </a>
+            </li>
+        </ul>
+        <div class="news-archive__nav">
+            <ul class="news-archive__nav-list">
+                <li class="news-archive__nav-list-item">
+                    <a href="#" class="news-archive__nav-link active">
+                        Все
+                    </a>
+                </li>
+                <li class="news-archive__nav-list-item">
+                    <a href="#" class="news-archive__nav-link">
+                        Ритейл сети
+                    </a>
+                </li>
+                <li class="news-archive__nav-list-item">
+                    <a href="#" class="news-archive__nav-link">
+                        Сети АЗС
+                    </a>
+                </li>
+                <li class="news-archive__nav-list-item">
+                    <a href="#" class="news-archive__nav-link">
+                        Сети кафе и ресторанов
+                    </a>
+                </li>
+                <li class="news-archive__nav-list-item">
+                    <a href="#" class="news-archive__nav-link">
+                        Бьюти индустрия
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <ul class="news-archive__list">
+            {{#each news}}
+                <li class="news-archive__list-item">
+                    {{> news-card }}
+                </li>
+            {{/each}}
+        </ul>
+        <a href="#" class="news-archive__load-more">
+            Показать еще
+        </a>
+    </div>
+</div>
