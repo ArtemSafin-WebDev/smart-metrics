@@ -21,6 +21,7 @@ import awards from "./awards";
 import news from "./news";
 import contactUs from "./contactUs";
 import solutionsArchive from "./solutionsArchive";
+import tariffsPage from "./tariffsPage";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   news();
   contactUs();
   solutionsArchive();
+  tariffsPage();
 });
 
 window.addEventListener("load", () => {

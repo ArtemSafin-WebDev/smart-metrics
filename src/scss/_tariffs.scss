@@ -1,0 +1,345 @@
+.tariffs {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  padding-top: 19rem;
+  padding-bottom: 16rem;
+
+  @include breakpoint(mobile) {
+    padding-top: 9rem;
+    padding-bottom: 6.8rem;
+  }
+}
+
+.tariffs__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+}
+
+.tariffs__heading {
+  font-family: Onest;
+  font-size: 10rem;
+
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.3rem;
+
+  @include breakpoint(mobile) {
+    font-size: 4.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.088rem;
+  }
+}
+
+.tariffs__heading-text {
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.09rem;
+  margin-top: 2.5rem;
+  color: #b2b6ba;
+
+  @include breakpoint(mobile) {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.036rem;
+    margin-top: 1.6rem;
+  }
+}
+
+.tariffs__list {
+  margin-top: 6rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: 2.4rem;
+
+  @include breakpoint(mobile) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-gap: 1.2rem;
+    margin-top: 3.2rem;
+  }
+}
+
+.tariffs__list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.tariffs__card {
+  --top-bg-color: #418dd9;
+  --top-color: white;
+  --units-color: rgba(255, 255, 255, 0.6);
+  --icon-color: #418dd9;
+  --btn-bg-color: #418dd9;
+  --btn-text-color: white;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  background-color: #f2f5f8;
+  min-height: 62rem;
+
+  @include breakpoint(mobile) {
+    min-height: auto;
+  }
+  &--grey {
+    --top-bg-color: #dfe4ea;
+    --top-color: #000d1a;
+    --units-color: rgba(0, 13, 26, 0.6);
+    --icon-color: #b9c4d0;
+    --btn-bg-color: #dfe4ea;
+    --btn-text-color: #000d1a;
+    .tariffs__card-top {
+      background-image: url("../images/decor/tariffs/1.svg");
+    }
+
+    .tariffs__card-btn {
+      @media (hover: hover) {
+        &:hover {
+          border-color: var(--primary-color);
+          color: var(--primary-color);
+        }
+      }
+
+      &:active {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  &--deep-blue {
+    --top-bg-color: #1262b3;
+    --top-color: white;
+    --units-color: rgba(255, 255, 255, 0.6);
+    --icon-color: #1262b3;
+    --btn-bg-color: #1262b3;
+    --btn-text-color: white;
+    .tariffs__card-top {
+      background-image: url("../images/decor/tariffs/3.svg");
+    }
+  }
+
+  &--dark {
+    --top-bg-color: #1f262d;
+    --top-color: white;
+    --units-color: rgba(255, 255, 255, 0.6);
+    --icon-color: #1f262d;
+    --btn-bg-color: #1f262d;
+    --btn-text-color: white;
+    .tariffs__card-top {
+      background-image: url("../images/decor/tariffs/4.svg");
+    }
+  }
+}
+
+.tariffs__card-top {
+  padding: 3.2rem;
+  padding-top: 6.4rem;
+  background-color: var(--top-bg-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: var(--top-color);
+  background-image: url("../images/decor/tariffs/2.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+
+  @include breakpoint(mobile) {
+    padding: 2.4rem;
+    padding-top: 6rem;
+  }
+}
+
+.tariffs__card-popular {
+  position: absolute;
+  top: 2.4rem;
+  right: 2.4rem;
+  z-index: 5;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 99.9rem;
+  background: rgba(88, 255, 185, 0.2);
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115%;
+  color: #58ffb9;
+  padding: 0.9rem 1rem;
+  padding-right: 1.6rem;
+  svg {
+    flex-shrink: 0;
+    fill: currentColor;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 115%;
+    padding: 0.8rem;
+    padding-right: 1.6rem;
+    padding-left: 1rem;
+    gap: 0.6rem;
+    svg {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+  }
+}
+
+.tariffs__card-title {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  margin-bottom: 0.5rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.032rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+.tariffs__card-price {
+  font-family: Onest;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: -0.12rem;
+  margin-bottom: 0.2rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: -0.084rem;
+  }
+}
+
+.tariffs__card-price-unit {
+  color: var(--units-color);
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.032rem;
+  }
+}
+
+.tariffs__card-bottom {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 3.2rem;
+
+  @include breakpoint(mobile) {
+    padding: 2.4rem;
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
+  }
+}
+
+.tariffs__card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 3.2rem;
+}
+
+.tariffs__card-feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  align-items: flex-start;
+
+  svg {
+    flex-shrink: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    margin-top: -0.2rem;
+    fill: var(--icon-color);
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.032rem;
+    gap: 1rem;
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+}
+
+.tariffs__card-btn {
+  @include blueBtn;
+  background-color: var(--btn-bg-color);
+  border-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  margin-top: auto;
+  margin-bottom: 2.4rem;
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: var(--btn-bg-color);
+      color: var(--btn-bg-color);
+    }
+  }
+
+  &:active {
+    border-color: var(--btn-bg-color);
+    color: var(--btn-bg-color);
+  }
+
+  @include breakpoint(mobile) {
+    align-self: stretch;
+  }
+}
+
+.tariffs__card-remark {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  color: rgba(#000d1a, 0.5);
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
