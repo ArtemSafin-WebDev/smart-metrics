@@ -1,0 +1,52 @@
+<a href="#" class="case-card">
+
+    <div class="case-card__logo-wrapper">
+        <div class="case-card__logo-wrapper-inner">
+            <img src="{{ src }}" alt="" class="case-card__image">
+        </div>
+    </div>
+
+    <div class="case-card__main-content">
+        <h3 class="case-card__title">
+            {{ title }}
+        </h3>
+        <div class="case-card__text-content">
+            <ul class="case-card__tags-list">
+                {{#each tags}}
+                    <li class="case-card__tags-list-item">
+                        <div class="case-card__tag">
+                            {{ this }}
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+            <div class="case-card__desc">
+                {{ desc }}
+            </div>
+            <div class="case-card__more">
+                Подробнее
+                <svg width="14" height="14" aria-hidden="true">
+                    <use xlink:href="#fat-arrow-right"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="case-card__features">
+            <ul class="case-card__features-list">
+                {{#each features}}
+                    <li class="case-card__features-list-item">
+                        <div class="case-card__features-card">
+                            <div class="case-card__features-card-amount">
+                                {{ amount }}
+                            </div>
+                            <div class="case-card__features-card-text">
+                                {{ text }}
+                            </div>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+
+</a>

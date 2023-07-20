@@ -1,0 +1,46 @@
+<section class="cases">
+    <div class="cases__content">
+        <h1 class="cases__heading">
+            Кейсы
+        </h1>
+        <div class="cases__nav">
+            <ul class="cases__nav-list">
+                <li class="cases__nav-list-item">
+                    <a href="#" class="cases__nav-link active">
+                        Все документы
+                    </a>
+                </li>
+                <li class="cases__nav-list-item">
+                    <a href="#" class="cases__nav-link">
+                        Ритейл сети
+                    </a>
+                </li>
+                <li class="cases__nav-list-item">
+                    <a href="#" class="cases__nav-link">
+                        Сети АЗС
+                    </a>
+                </li>
+                <li class="cases__nav-list-item">
+                    <a href="#" class="cases__nav-link">
+                        Сеть кафе и ресторанов
+                    </a>
+                </li>
+                <li class="cases__nav-list-item">
+                    <a href="#" class="cases__nav-link">
+                        Бьюти индустрия
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <ul class="cases__list">
+            {{#each cases}}
+                <li class="cases__list-item">
+                    {{> case-card }}
+                </li>
+            {{/each}}
+        </ul>
+        <a href="#" class="cases__load-more">
+            Показать еще
+        </a>
+    </div>
+</section>
