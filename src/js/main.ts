@@ -25,6 +25,7 @@ import tariffsPage from "./tariffsPage";
 import documentation from "./documentation";
 import newsArchive from "./newsArchive";
 import cases from "./cases";
+import contacts from "./contacts";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   documentation();
   newsArchive();
   cases();
+  contacts();
 });
 
 window.addEventListener("load", () => {

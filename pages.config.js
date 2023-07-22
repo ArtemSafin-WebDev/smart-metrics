@@ -5,6 +5,7 @@ import notFound from "./pages-data/not-found";
 import solutions from "./pages-data/solutions";
 import tariffs from "./pages-data/tariffs";
 import cases from "./pages-data/cases";
+import contacts from "./pages-data/contacts";
 
 const pagesConfig = {
   ...home,
@@ -14,6 +15,7 @@ const pagesConfig = {
   ...notFound,
   ...newsArchive,
   ...cases,
+  ...contacts,
 };
 
 export default pagesConfig;

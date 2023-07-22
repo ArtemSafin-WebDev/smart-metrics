@@ -12,7 +12,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   font-size: clamp(2px, 0.55vw, 125px);
-
+  scrollbar-gutter: stable;
   @include breakpoint(mobile) {
     font-size: 10px;
   }
@@ -29,9 +29,11 @@ body {
   font-family: var(--onest);
   overscroll-behavior: none;
   overflow-anchor: none;
+  scrollbar-gutter: stable;
 }
 
-body.menu-open {
+body.menu-open,
+body.modal-open {
   touch-action: none;
   -webkit-overflow-scrolling: none;
   overflow: hidden;

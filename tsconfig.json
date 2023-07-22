@@ -20,5 +20,5 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false
   },
-  "include": ["src"]
+  "include": ["src", "public/assets"]
 }

@@ -1,0 +1,242 @@
+.contacts {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  padding-top: 20rem;
+  margin-bottom: 6rem;
+
+  [class*="ymaps-2"][class*="-ground-pane"] {
+    filter: grayscale(100%);
+  }
+
+  [class*="ymaps-2"][class*="-copyrights-pane"] {
+    display: none;
+  }
+
+  @include breakpoint(mobile) {
+    padding-top: 9rem;
+    margin-bottom: 6.8rem;
+  }
+}
+
+.contacts__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+}
+
+.contacts__heading {
+  font-size: 10rem;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.3rem;
+  margin-bottom: 5.8rem;
+
+  @include breakpoint(mobile) {
+    font-size: 4.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.088rem;
+    margin-bottom: 2.4rem;
+  }
+}
+
+.contacts__map-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.contacts__map-container {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  background-color: lightgrey;
+  border-radius: 1.6rem;
+  position: relative;
+  overflow: hidden;
+
+  @include breakpointMF(small-tablet) {
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: 52.49%;
+    }
+  }
+
+  @include breakpoint(mobile) {
+    min-height: 84rem;
+  }
+}
+
+.contacts__map {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contacts__map-text-content-wrapper {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  padding: 3.2rem;
+  pointer-events: none;
+
+  @include breakpoint(mobile) {
+    padding: 1.2rem;
+  }
+}
+
+.contacts__map-text-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  border-radius: 1.2rem;
+  background: white;
+  width: 50rem;
+  padding: 3.6rem;
+  padding-top: 5rem;
+  flex-grow: 1;
+  pointer-events: all;
+
+  @include breakpoint(mobile) {
+    width: auto;
+    border-radius: 1rem;
+    padding: 2.4rem;
+    min-height: 41.6rem;
+    flex-grow: 0;
+    margin: 0;
+  }
+}
+
+.contacts__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 8rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 3.2rem;
+    gap: 2.4rem;
+  }
+}
+
+.contacts__card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  @include breakpoint(mobile) {
+    gap: 0.2rem;
+  }
+}
+
+.contacts__card-title {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  color: rgba(#000d1a, 0.4);
+
+  @include breakpoint(mobile) {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
+
+.contacts__phone-link {
+  display: block;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: -0.12rem;
+  transition: color 0.2s;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &:active {
+    color: var(--primary-color);
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.048rem;
+  }
+}
+
+.contacts__mail-link {
+  font-family: Onest;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.048rem;
+  transition: color 0.2s;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &:active {
+    color: var(--primary-color);
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.048rem;
+  }
+}
+
+.contacts__card-address {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
+
+.contacts__link {
+  @include blueBtn;
+  margin-bottom: 3rem;
+}
+
+.contacts__requisites {
+  margin-top: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 145%;
+  color: rgba(31, 38, 45, 0.3);
+
+  @include breakpoint(mobile) {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
