@@ -66,6 +66,8 @@
   background-position: right bottom;
   background-size: auto 100%;
   position: relative;
+  backface-visibility: hidden;
+  transform: translateZ(0);
   z-index: 1;
   svg {
     width: 2.2rem;
@@ -81,7 +83,7 @@
   @media (hover: hover) {
     &:hover {
       .solutions-archive__card-image {
-        transform: scale(1.05);
+        transform: translateZ(0) scale(1.05);
       }
     }
   }
@@ -120,4 +122,5 @@
   pointer-events: none;
   transition: transform 0.5s;
   right: -2rem;
+  transform: translateZ(0);
 }

@@ -1,0 +1,133 @@
+<div class="modal">
+    <button class="modal__close js-close-modal">
+        <svg width="14" height="14" aria-hidden="true">
+            <use xlink:href="#cross"></use>
+        </svg>
+    </button>
+    <div class="modal__layers">
+        <div class="modal__layer modal__layer--default active">
+            <div class="modal__outer">
+                <div class="modal__inner">
+                    <div class="modal__col">
+                        <h2 class="modal__heading">
+                            Просто напишите нам. <b>Ответим<br> вам как можно скорее.</b>
+                        </h2>
+                        <div class="modal__contacts">
+                            <div class="modal__links">
+                                <a href="tel:+79033422377" class="modal__phone">+7 (903) 342–23–77</a>
+                                <a href="mailto:info@smartmetrics.su" class="modal__email">info@smartmetrics.su</a>
+                            </div>
+                            <div class="modal__address">
+                                Республика Татарстан, Казань,<br> 420074, ул. Петербургская, 52 а/я 24
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal__col">
+                        <form action="/" method="POST" class="modal__form">
+                            <div class="modal__fields">
+                                <div class="modal__field">
+                                    <label class="modal__label">
+                                        <input type="text" class="modal__input" name="your-name" required=""
+                                            placeholder="Ваше имя *">
+                                        <span class="modal__label-text">
+                                            Ваше имя *
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="modal__field">
+                                    <label class="modal__label">
+                                        <input type="tel" class="modal__input" name="your-phone" required=""
+                                            placeholder="Телефон *">
+                                        <span class="modal__label-text">
+                                            Телефон *
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="modal__field">
+                                    <label class="modal__label">
+                                        <input type="text" class="modal__input" name="your-company"
+                                            placeholder="Название сети">
+                                        <span class="modal__label-text">
+                                            Название сети
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="modal__field">
+                                    <label class="modal__label">
+                                        <input type="text" class="modal__input" name="your-company"
+                                            placeholder="Количество точек сети">
+                                        <span class="modal__label-text">
+                                            Количество точек сети
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="modal__field modal__field--fullwidth">
+                                    <label class="modal__label">
+                                        <textarea name="your-comment" class="modal__input"
+                                            placeholder="Какую задачу хотите решить"></textarea>
+                                        <span class="modal__label-text">
+                                            Какую задачу хотите решить
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal__submit-wrapper">
+                                <div class="modal__submit-wrapper-inner">
+                                    <button class="modal__submit" type="submit">
+                                        Отправить
+                                    </button>
+                                    <div class="modal__policy">
+                                        Нажимая кнопку “Отправить”, вы даете согласие
+                                        на <a href="#">обработку персональных данных</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__layer modal__layer--success">
+            <div class="modal__outer">
+                <div class="modal__message">
+                    <div class="modal__message-text-content">
+                        <svg width="14" height="14" aria-hidden="true">
+                            <use xlink:href="#ok"></use>
+                        </svg>
+                        <h2 class="modal__message-heading">
+                            Заявка успешно отправлена.<br>
+                            <b>Мы свяжемся с вами в ближайшее время!</b>
+                        </h2>
+                        <button class="modal__message-link modal__message-link--large js-close-modal" type="button">
+                            Отлично
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__layer modal__layer--error">
+            <div class="modal__outer">
+                <div class="modal__message">
+                    <div class="modal__message-text-content">
+                        <svg width="14" height="14" aria-hidden="true">
+                            <use xlink:href="#error"></use>
+                        </svg>
+                        <h2 class="modal__message-heading">
+                            Не удалось отправить заявку.<br>
+                            <b>
+                                Пожалуйста, повторите попытку
+                            </b>
+
+                        </h2>
+                        <button class="modal__message-link js-reset-modal" type="button">
+                            Повторить
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

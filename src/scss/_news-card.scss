@@ -32,6 +32,8 @@
   width: 25.4rem;
   flex-shrink: 0;
   align-self: flex-start;
+  backface-visibility: hidden;
+  transform: translateZ(0);
   &::before {
     content: "";
     display: block;

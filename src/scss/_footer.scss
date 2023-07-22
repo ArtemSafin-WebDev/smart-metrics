@@ -145,6 +145,10 @@
   &:has(.not-valid) {
     border-color: #f60a18;
     background: rgba(246, 10, 24, 0.1);
+
+    .page-footer__subscribe-input::placeholder {
+      color: white;
+    }
   }
 }
 
@@ -159,6 +163,7 @@
   padding: 0 2.2rem;
   &::placeholder {
     color: rgba(255, 255, 255, 0.2);
+    transition: color 0.2s;
   }
 
   @include breakpoint(mobile) {

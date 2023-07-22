@@ -1,0 +1,545 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 80;
+  background: white;
+  overscroll-behavior-y: contain;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0s linear 0.4s;
+
+  &.active {
+    opacity: 1;
+    visibility: inherit;
+    transition: opacity 0.4s, visibility 0.4s;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 5rem;
+  right: 7rem;
+  width: 5rem;
+  height: 5rem;
+  z-index: 30;
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: fill 0.2s;
+    fill: #cccfd1;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      svg {
+        fill: var(--primary-color);
+      }
+    }
+  }
+
+  @include breakpoint(mobile) {
+    width: 3rem;
+    height: 3rem;
+    right: 1.6rem;
+    top: 2.4rem;
+  }
+}
+
+.modal__outer {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  flex-grow: 1;
+}
+
+.modal__inner {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+  padding: 14rem 0;
+
+  @include breakpointMF(small-tablet) {
+    display: grid;
+    grid-gap: 2.4rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-self: flex-start;
+  }
+
+  @include breakpoint(mobile) {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.modal__col {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.modal__heading {
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: -0.12rem;
+  margin-bottom: 3rem;
+  b {
+    font-weight: inherit;
+    color: var(--primary-color);
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.048rem;
+    margin-bottom: 3.2rem;
+
+    br {
+      display: none;
+    }
+  }
+}
+
+.modal__contacts {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4.2rem;
+
+  @include breakpoint(mobile) {
+    gap: 3.2rem;
+    order: 15;
+  }
+}
+
+.modal__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-start;
+
+  @include breakpoint(mobile) {
+    gap: 1.2rem;
+  }
+}
+
+.modal__phone {
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.09rem;
+  transition: color 0.2s, text-decoration-color 0.2s;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration-color: var(--text-color);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.06rem;
+  }
+}
+
+.modal__email {
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.09rem;
+  color: var(--primary-color);
+  transition: color 0.2s, text-decoration-color 0.2s;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  &:link,
+  &:visited {
+    color: var(--primary-color);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration-color: var(--primary-color);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.06rem;
+  }
+}
+
+.modal__address {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 145%;
+  color: #4d565f;
+
+  @include breakpoint(mobile) {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
+
+.modal__form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__fields {
+  margin-bottom: 8rem;
+
+  @include breakpointMF(small-tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 2.4rem;
+    grid-row-gap: 1.6rem;
+  }
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2.4rem;
+  }
+}
+
+.modal__field {
+  position: relative;
+  &--fullwidth {
+    grid-column: 1 / -1;
+  }
+
+  .validation-error {
+    position: absolute;
+    right: 2.8rem;
+    top: 3.6rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    width: max-content;
+    max-width: calc(100% - 2.8rem * 2);
+    background-color: #fff;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.4rem 0px 0.4rem 0.4rem;
+    border: 0.5px solid #dfe4ea;
+    background: #fff;
+    color: var(--text-color);
+    z-index: 10;
+    pointer-events: none;
+
+    @include breakpoint(mobile) {
+      font-size: 1.2rem;
+      padding: 0.4rem;
+      top: 2.8rem;
+    }
+  }
+}
+
+.modal__label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.modal__input {
+  font: inherit;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  padding: 0 1.6rem;
+  padding-bottom: 0.8rem;
+  padding-top: 2.4rem;
+  border-radius: 1.2rem;
+  background: #f2f5f8;
+  border: 1px solid #f2f5f8;
+  transition: border-color 0.2s, background-color 0.2s;
+  &::placeholder {
+    opacity: 0;
+  }
+
+  &:focus {
+    border-color: var(--primary-color);
+  }
+
+  &.not-valid {
+    border-color: #f60a18;
+    background: rgba(246, 10, 24, 0.1);
+    background-image: url("../images/form-error.svg");
+    background-size: 2.4rem 2.4rem;
+    background-repeat: no-repeat;
+    background-position: right 1.6rem top 1.5rem;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+
+    &.not-valid {
+      background-size: 2.4rem 2.4rem;
+      background-position: right 1.6rem top 1.3rem;
+    }
+  }
+}
+
+textarea.modal__input {
+  height: 14rem;
+  padding: 1.6rem;
+  padding-top: 2.4rem;
+  resize: none;
+
+  @include breakpoint(mobile) {
+    height: 12rem;
+    padding-top: 2rem;
+  }
+}
+
+.modal__label-text {
+  position: absolute;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  color: rgba(31, 38, 45, 0.3);
+  transition: transform 0.2s, color 0.2s;
+  left: 1.6rem;
+  top: 1.7rem;
+  transform-origin: left center;
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    top: 1.7rem;
+  }
+}
+
+.modal__input:focus ~ .modal__label-text,
+.modal__input:not(:placeholder-shown) ~ .modal__label-text {
+  transform: translateY(-1.1rem) scale(0.8);
+  color: var(--primary-color);
+
+  @include breakpoint(mobile) {
+    transform: translateY(-1.25rem) scale(0.8);
+  }
+}
+
+.modal__input.not-valid ~ .modal__label-text {
+  color: #f60a18;
+}
+
+.modal__submit-wrapper {
+  @include breakpointMF(small-tablet) {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 2.4rem;
+  }
+
+  @include breakpoint(mobile) {
+    margin-bottom: 4.8rem;
+  }
+}
+
+.modal__submit-wrapper-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1.6rem;
+  }
+}
+
+.modal__submit {
+  @include blueBtn;
+  align-self: stretch;
+
+  @include breakpoint(mobile) {
+    align-self: center;
+    flex-shrink: 0;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.modal__policy {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+
+  @include breakpoint(mobile) {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: color 0.2s, text-decoration-color 0.2s;
+    &:link,
+    &:visited {
+      color: var(--primary-color);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+.modal__layers {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.modal__layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0s linear 0.4s;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100%;
+  &.active {
+    opacity: 1;
+    visibility: inherit;
+    transition: opacity 0.4s, visibility 0.4s;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.modal__message {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 0;
+
+  @include breakpoint(mobile) {
+    padding: 3.2rem 0;
+  }
+}
+
+.modal__message-text-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+
+  svg {
+    flex-shrink: 0;
+    width: 8rem;
+    height: 8rem;
+    fill: var(--primary-color);
+    margin-bottom: 4rem;
+
+    @include breakpoint(mobile) {
+      width: 4.8rem;
+      height: 4.8rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.modal__message-heading {
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: -0.102rem;
+  margin-bottom: 2.4rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.048rem;
+
+    br {
+      display: none;
+    }
+  }
+
+  b {
+    font-weight: inherit;
+    color: var(--primary-color);
+  }
+}
+
+.modal__message-link {
+  @include blueBtn;
+
+  align-self: center;
+
+  @include breakpointMF(small-tablet) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    &--large {
+      padding-left: 6.9rem;
+      padding-right: 6.9rem;
+    }
+  }
+
+  @include breakpoint(mobile) {
+    width: 14.7rem;
+  }
+}

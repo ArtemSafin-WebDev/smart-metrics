@@ -26,6 +26,7 @@ import documentation from "./documentation";
 import newsArchive from "./newsArchive";
 import cases from "./cases";
 import contacts from "./contacts";
+import modal from "./modal";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   newsArchive();
   cases();
   contacts();
+  modal();
 });
 
 window.addEventListener("load", () => {
