@@ -19,7 +19,9 @@ export default function homeNewsSlider() {
 
     const handleWidthChange = (e: MediaQueryListEvent | MediaQueryList) => {
       if (e.matches) {
-        sliderInstance = new Swiper(container, options);
+        if (container) {
+          sliderInstance = new Swiper(container, options);
+        }
       } else {
         if (sliderInstance) {
           sliderInstance.destroy();

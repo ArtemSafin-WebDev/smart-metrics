@@ -27,6 +27,9 @@ import newsArchive from "./newsArchive";
 import cases from "./cases";
 import contacts from "./contacts";
 import modal from "./modal";
+import accordions from "./accordions";
+import gallery from "./gallery";
+import demo from "./demo";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -57,6 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
   cases();
   contacts();
   modal();
+  accordions();
+  gallery();
+  demo();
 });
 
 window.addEventListener("load", () => {

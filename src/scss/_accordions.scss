@@ -1,0 +1,125 @@
+.accordions {
+  margin-top: 3.2rem;
+
+  @include breakpoint(mobile) {
+    margin-top: 1.6rem;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.accordions__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include breakpoint(mobile) {
+    gap: 0.8rem;
+  }
+}
+
+.accordions__item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.6rem;
+  background: #f2f5f8;
+
+  @include breakpoint(mobile) {
+    border-radius: 1.2rem;
+  }
+}
+
+.accordions__item-btn {
+  padding: 2.4rem 3.2rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 145%;
+  gap: 3rem;
+
+  @include breakpoint(mobile) {
+    padding: 1.6rem 2.4rem;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    letter-spacing: -0.048rem;
+    gap: 2rem;
+  }
+}
+
+.accordions__item-btn-text {
+  width: 30%;
+  flex-grow: 1;
+}
+
+.accordions__item-btn-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  position: relative;
+  flex-shrink: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.6rem;
+    height: 0.3rem;
+    background-color: var(--primary-color);
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s;
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .js-accordion.active & {
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    width: 2.2rem;
+    height: 2.2rem;
+    &::before,
+    &::after {
+      width: 1.4rem;
+      height: 0.2rem;
+    }
+  }
+}
+
+.accordions__item-content {
+  height: 0;
+  overflow: hidden;
+}
+
+.accordions__item-content-inner {
+  padding: 3.2rem;
+  padding-top: 0;
+  padding-bottom: 2.4rem;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  color: rgba(#000d1a, 0.5);
+
+  @include breakpoint(mobile) {
+    padding: 2.4rem;
+    padding-top: 0;
+    padding-bottom: 1.6rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}

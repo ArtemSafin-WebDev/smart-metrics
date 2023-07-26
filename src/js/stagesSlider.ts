@@ -15,6 +15,8 @@ export default function stagesSlider() {
       speed: 600,
     };
 
-    new Swiper(container, options);
+    if (container) {
+      new Swiper(container, options);
+    }
   });
 }

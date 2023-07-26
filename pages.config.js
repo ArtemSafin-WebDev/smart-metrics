@@ -6,6 +6,7 @@ import solutions from "./pages-data/solutions";
 import tariffs from "./pages-data/tariffs";
 import cases from "./pages-data/cases";
 import contacts from "./pages-data/contacts";
+import newsSingle from "./pages-data/newsSingle";
 
 const pagesConfig = {
   ...home,
@@ -16,6 +17,7 @@ const pagesConfig = {
   ...newsArchive,
   ...cases,
   ...contacts,
+  ...newsSingle,
 };
 
 export default pagesConfig;
