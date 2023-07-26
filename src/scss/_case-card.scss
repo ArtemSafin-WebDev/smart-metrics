@@ -189,6 +189,12 @@
     &:visited {
       color: rgba(31, 38, 45, 0.3);
     }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
   }
 
   @include breakpoint(mobile) {
