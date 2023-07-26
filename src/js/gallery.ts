@@ -30,9 +30,11 @@ export default function gallery() {
       speed: 600,
       modules: [Pagination, Navigation, Controller],
       longSwipesRatio: 0.2,
+      spaceBetween: 8,
       pagination: {
         type: "bullets",
         el: pagination,
+        clickable: true,
       },
       navigation: {
         prevEl: element.querySelector<HTMLButtonElement>(
@@ -45,6 +47,7 @@ export default function gallery() {
       breakpoints: {
         641: {
           slidesPerView: "auto",
+          spaceBetween: 0,
         },
       },
     };
