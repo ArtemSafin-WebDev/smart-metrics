@@ -10,7 +10,8 @@
   width: 100%;
   height: auto;
   z-index: 60;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
+  color: var(--text-color);
 
   @include breakpoint(mobile) {
     &::before {
@@ -55,7 +56,7 @@
 
 .page-header__logo {
   flex-shrink: 0;
-
+  position: relative;
   @include breakpoint(mobile) {
     position: relative;
     z-index: 80;
@@ -67,6 +68,15 @@
   width: 23.4rem;
   display: block;
   height: auto;
+  transition: opacity 0.2s;
+  &:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+  }
   @include breakpoint(mobile) {
     width: 15.6rem;
   }
@@ -130,6 +140,11 @@
           line-height: 140%;
           display: block;
           transition: color 0.2s;
+          color: var(--text-color);
+          &:link,
+          &:visited {
+            color: var(--text-color);
+          }
 
           @media (hover: hover) {
             &:hover {
@@ -304,6 +319,69 @@
         }
         &:nth-child(3) {
           transform: translateY(-0.6rem) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+body:not(.fixed-header):not(.menu-open) .page-header.page-header--white {
+  color: white;
+
+  .page-header__logo-image:nth-child(1) {
+    opacity: 0;
+  }
+  .page-header__logo-image:nth-child(2) {
+    opacity: 1;
+  }
+
+  .page-header__dashboard {
+    @include breakpointMF(small-tablet) {
+      color: white;
+      border-color: white;
+      &:link,
+      &:visited {
+        color: white;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: white;
+          color: var(--primary-color);
+        }
+      }
+
+      &:active {
+        background-color: white;
+        color: var(--primary-color);
+      }
+    }
+
+    @include breakpoint(mobile) {
+      svg {
+        fill: white;
+      }
+    }
+  }
+
+  .page-header__burger {
+    & > span {
+      background-color: white;
+    }
+  }
+
+  .page-header__nav {
+    @include breakpointMF(small-tablet) {
+      & > ul > li > a {
+        color: white;
+        &:link,
+        &:visited {
+          color: white;
+        }
+        @media (hover: hover) {
+          &:hover {
+            color: rgba(white, 0.5);
+          }
         }
       }
     }

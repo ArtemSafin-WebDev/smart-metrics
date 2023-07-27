@@ -30,6 +30,7 @@ import modal from "./modal";
 import accordions from "./accordions";
 import gallery from "./gallery";
 import demo from "./demo";
+import otherCases from "./other-cases";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -63,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   accordions();
   gallery();
   demo();
+  otherCases();
 });
 
 window.addEventListener("load", () => {

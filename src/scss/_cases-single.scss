@@ -1,4 +1,4 @@
-.news-single {
+.cases-single {
   display: grid;
   grid-template-columns:
     [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
@@ -11,7 +11,7 @@
   }
 }
 
-.news-single__content {
+.cases-single__content {
   grid-column-start: content-start;
   grid-column-end: content-end;
   display: flex;
@@ -28,7 +28,7 @@
   }
 }
 
-.news-single__main {
+.cases-single__main {
   width: 88rem;
 
   @include breakpoint(mobile) {
@@ -36,7 +36,7 @@
   }
 }
 
-.news-single__sidebar {
+.cases-single__sidebar {
   width: 44rem;
   flex-shrink: 0;
 
@@ -46,12 +46,25 @@
   }
 }
 
-.news-single__demo {
+.cases-single__demo {
   padding: 3.2rem;
   border-radius: 1.6rem;
   background: #f2f5f8;
   display: flex;
   flex-direction: column;
+
+  @include breakpoint(mobile) {
+    padding: 2.4rem;
+  }
+}
+
+.cases-single__demo {
+  padding: 3.2rem;
+  border-radius: 1.6rem;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  color: white;
   position: relative;
 
   @include breakpoint(mobile) {
@@ -59,18 +72,18 @@
   }
 }
 
-.news-single__demo-top-row {
+.cases-single__demo-top-row {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 3.4rem;
+  margin-bottom: 2.4rem;
 
   @include breakpoint(mobile) {
     margin-bottom: 1.6rem;
   }
 }
 
-.news-single__demo-heading {
+.cases-single__demo-heading {
   width: 30%;
   flex-grow: 1;
   font-size: 3rem;
@@ -80,6 +93,12 @@
   letter-spacing: -0.09rem;
 
   @include breakpoint(mobile) {
+    // font-size: 2.6rem;
+    // font-style: normal;
+    // font-weight: 500;
+    // line-height: 125%;
+    // letter-spacing: -0.084rem;
+
     font-size: 2.8rem;
     font-style: normal;
     font-weight: 500;
@@ -88,32 +107,28 @@
   }
 }
 
-.news-single__demo-image {
+.cases-single__demo-image {
   width: 12.8rem;
   height: 12.8rem;
   object-fit: contain;
   flex-shrink: 0;
-  margin-right: -2rem;
-  margin-top: -0.8rem;
 
   @include breakpoint(mobile) {
-    width: 11rem;
-    height: 11rem;
-
+    width: 10rem;
+    height: 10rem;
     position: absolute;
     right: 0;
     top: 0;
-    margin-top: -4.5rem;
-    margin-right: -1rem;
+    margin-top: -3.5rem;
   }
 }
 
-.news-single__demo-desc {
+.cases-single__demo-desc {
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-  margin-bottom: 3.8rem;
+  margin-bottom: 3.2rem;
 
   @include breakpoint(mobile) {
     font-size: 1.4rem;
@@ -124,6 +139,6 @@
   }
 }
 
-.news-single__demo-link {
-  @include blueBtn;
+.cases-single__demo-link {
+  @include whiteBtn;
 }

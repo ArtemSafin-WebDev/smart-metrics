@@ -7,6 +7,7 @@ import tariffs from "./pages-data/tariffs";
 import cases from "./pages-data/cases";
 import contacts from "./pages-data/contacts";
 import newsSingle from "./pages-data/newsSingle";
+import casesSingle from "./pages-data/casesSingle";
 
 const pagesConfig = {
   ...home,
@@ -18,6 +19,7 @@ const pagesConfig = {
   ...cases,
   ...contacts,
   ...newsSingle,
+  ...casesSingle,
 };
 
 export default pagesConfig;
