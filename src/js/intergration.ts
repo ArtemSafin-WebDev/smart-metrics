@@ -29,8 +29,10 @@ export default function integration() {
       y: 0,
       ease: "power1.out",
     }
-  )
-    .fromTo(
+  );
+
+  if (row) {
+    tl.fromTo(
       row,
       {
         autoAlpha: 0,
@@ -43,8 +45,10 @@ export default function integration() {
         ease: "power1.out",
       },
       ">-=0.5"
-    )
-    .fromTo(
+    );
+  }
+  if (slider) {
+    tl.fromTo(
       slider,
       {
         autoAlpha: 0,
@@ -58,4 +62,5 @@ export default function integration() {
       },
       ">-=0.5"
     );
+  }
 }

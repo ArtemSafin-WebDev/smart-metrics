@@ -1,0 +1,205 @@
+.solution-header {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 12rem;
+  background-color: #f2f5f8;
+  background-image: url("../images/decor/intro-decor.svg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: auto 100%;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 6rem;
+    background-image: url("../images/decor/intro-decor-mobile.svg"),
+      linear-gradient(180deg, #f2f5f8 92.71%, #fff 100%);
+    background-position: left top, left top;
+    background-size: 100% auto, 100% auto;
+    background-repeat: no-repeat, no-repeat;
+  }
+}
+
+.solution-header__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+  padding-top: 15rem;
+  gap: 7.5rem;
+  display: flex;
+  padding-bottom: 12.2rem;
+
+  @include breakpoint(mobile) {
+    padding-bottom: 0;
+    padding-top: 10rem;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.solution-header__text-content {
+  @include breakpointMF(small-tablet) {
+    width: 30%;
+    flex-grow: 1;
+  }
+}
+
+.solution-header__heading {
+  font-size: 10rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.3rem;
+  margin-bottom: 1.6rem;
+
+  @include breakpoint(mobile) {
+    font-size: 3.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.072rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+.solution-header__text {
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: -0.12rem;
+  margin-bottom: 4.4rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.06rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.solution-header__link {
+  @include blueBtn;
+}
+
+.solution-header__images-row {
+  width: 56.2rem;
+  flex-shrink: 0;
+  grid-gap: 2.4rem;
+  display: grid;
+  grid-template-columns: 1.29fr 1fr;
+
+  @include breakpoint(mobile) {
+    width: auto;
+    grid-template-columns: 1.2fr 1fr;
+    grid-gap: 0.8rem;
+    flex-shrink: 1;
+  }
+}
+
+.solution-header__images-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+
+  @include breakpoint(mobile) {
+    gap: 0.8rem;
+  }
+}
+
+.solution-header__images-item {
+  border-radius: 1.6rem;
+  overflow: hidden;
+}
+
+.solution-header__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@include breakpointMF(small-tablet) {
+  .solution-header__images-col:nth-child(1) {
+    padding-top: 2rem;
+    .solution-header__images-item:nth-child(2) {
+      max-width: 21rem;
+      align-self: flex-end;
+    }
+  }
+
+  .solution-header__images-col:nth-child(2) {
+    .solution-header__images-item:nth-child(2) {
+      max-width: 20.8rem;
+      align-self: flex-start;
+    }
+  }
+}
+
+@include breakpoint(mobile) {
+  .solution-header__images-col:nth-child(1) {
+    padding-top: 3.7rem;
+    .solution-header__images-item:nth-child(2) {
+      max-width: 14rem;
+      align-self: flex-end;
+    }
+  }
+  .solution-header__images-col:nth-child(2) {
+    .solution-header__images-item:nth-child(2) {
+      max-width: 13rem;
+      align-self: flex-start;
+    }
+  }
+}
+
+.solution-header__back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  color: rgba(31, 38, 45, 0.3);
+  transition: color 0.2s;
+  margin-bottom: 5rem;
+  align-self: flex-start;
+  &:link,
+  &:visited {
+    color: rgba(31, 38, 45, 0.3);
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: currentColor;
+    margin-bottom: 0.18rem;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &:active {
+    color: var(--primary-color);
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    gap: 0.8rem;
+    grid-area: back;
+    margin: 0;
+    margin-bottom: 4rem;
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}

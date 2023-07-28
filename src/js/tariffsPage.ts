@@ -5,38 +5,47 @@ import { ANIMATION_START } from "./constants";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function tariffsPage() {
-  const tariffs = document.querySelector(".tariffs");
-  if (!tariffs) return;
+  const elements = Array.from(document.querySelectorAll(".tariffs"));
 
-  const heading = tariffs.querySelector(".tariffs__heading");
-  const headingText = tariffs.querySelector(".tariffs__heading-text");
-  const listItems = Array.from(tariffs.querySelectorAll(".tariffs__list-item"));
-  const tl = gsap.timeline({
-    delay: 1,
-    scrollTrigger: {
-      trigger: tariffs,
-      start: ANIMATION_START,
-    },
-  });
-
-  tl.fromTo(
-    heading,
-    {
-      autoAlpha: 0,
-      y: 60,
-    },
-    { duration: 1, autoAlpha: 1, y: 0, ease: "power1.out" }
-  )
-    .fromTo(
-      headingText,
-      {
-        autoAlpha: 0,
-        y: 60,
+  elements.forEach((tariffs) => {
+    const heading = tariffs.querySelector(
+      ".tariffs__heading, .tariffs__secondary-heading"
+    );
+    const headingText = tariffs.querySelector(".tariffs__heading-text");
+    const listItems = Array.from(
+      tariffs.querySelectorAll(".tariffs__list-item")
+    );
+    const tl = gsap.timeline({
+      delay: tariffs.matches(".tariffs--standalone") ? 0 : 1,
+      scrollTrigger: {
+        trigger: tariffs,
+        start: ANIMATION_START,
       },
-      { duration: 1, autoAlpha: 1, y: 0, ease: "power1.out" },
-      "<+=0.5"
-    )
-    .fromTo(
+    });
+
+    if (heading) {
+      tl.fromTo(
+        heading,
+        {
+          autoAlpha: 0,
+          y: 60,
+        },
+        { duration: 1, autoAlpha: 1, y: 0, ease: "power1.out" }
+      );
+    }
+    if (headingText) {
+      tl.fromTo(
+        headingText,
+        {
+          autoAlpha: 0,
+          y: 60,
+        },
+        { duration: 1, autoAlpha: 1, y: 0, ease: "power1.out" },
+        "<+=0.5"
+      );
+    }
+
+    tl.fromTo(
       listItems,
       {
         autoAlpha: 0,
@@ -51,4 +60,5 @@ export default function tariffsPage() {
       },
       ">-=0.5"
     );
+  });
 }

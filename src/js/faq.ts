@@ -4,19 +4,17 @@ import { ANIMATION_START } from "./constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function advantages() {
-  const elements = Array.from(
-    document.querySelectorAll<HTMLElement>(".advantages")
-  );
+export default function faq() {
+  const elements = Array.from(document.querySelectorAll<HTMLElement>(".faq"));
 
-  elements.forEach((advantages) => {
-    const heading = advantages.querySelector(".advantages__heading");
+  elements.forEach((element) => {
+    const heading = element.querySelector<HTMLElement>(".faq__heading");
     const listItems = Array.from(
-      advantages.querySelectorAll(".advantages__list-item")
+      element.querySelectorAll<HTMLElement>(".accordions__item")
     );
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: advantages,
+        trigger: element,
         start: ANIMATION_START,
       },
     });
@@ -27,7 +25,7 @@ export default function advantages() {
         autoAlpha: 0,
         y: 60,
       },
-      { duration: 1, autoAlpha: 1, y: 0, ease: "power1.out" }
+      { duration: 1, autoAlpha: 1, y: 0, ease: "power1.out", clearProps: "all" }
     ).fromTo(
       listItems,
       {

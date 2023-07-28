@@ -1,0 +1,305 @@
+.abilities {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 16rem;
+  @include breakpoint(mobile) {
+    margin-bottom: 6.8rem;
+  }
+}
+
+.abilities__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+
+  @include breakpointMF(small-tablet) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-gap: 2.4rem;
+    display: grid;
+  }
+}
+
+.abilities__heading {
+  @include sectionHeading;
+  margin-bottom: 6rem;
+  @include breakpoint(mobile) {
+    margin-bottom: 3.2rem;
+  }
+}
+
+.abilities__sidebar {
+  @include breakpointMF(small-tablet) {
+    grid-column: 1 / 5;
+  }
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.abilities__main {
+  @include breakpointMF(small-tablet) {
+    grid-column: 5 / -1;
+    padding-left: 6rem;
+  }
+}
+
+.abilities__nav {
+  @include breakpoint(mobile) {
+    display: none;
+  }
+}
+
+.abilities__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: flex-start;
+  @include breakpoint(mobile) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
+    margin: 0 calc(-1 * var(--content-padding));
+    padding: 0 var(--content-padding);
+    scroll-padding-left: var(--content-padding);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    @include noScrollbar;
+    scroll-snap-type: x mandatory;
+  }
+}
+
+.abilities__nav-list-item {
+  flex-shrink: 0;
+
+  @include breakpoint(mobile) {
+    scroll-snap-align: start;
+  }
+}
+
+.abilities__nav-link {
+  display: block;
+  padding: 1.9rem 3.2rem;
+  font-size: 1.8rem;
+  transition: color 0.2s, border-color 0.2s;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  border-radius: 99.9rem;
+  border: 1px solid #dfe4ea;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &:active {
+    color: var(--primary-color);
+  }
+
+  &.active {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    cursor: default;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    padding: 1.1rem 2rem;
+    white-space: nowrap;
+  }
+}
+
+.abilities__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  @include breakpoint(mobile) {
+    grid-gap: 1.2rem;
+  }
+}
+
+.abilities__card {
+  border-radius: 2.1rem;
+  background: #f2f5f8;
+  transition: background-color 0.2s, color 0.2s;
+
+  position: relative;
+
+  @include breakpointMF(small-tablet) {
+    &.hovered {
+      background-color: var(--primary-color);
+      color: white;
+
+      .abilities__card-btn {
+        color: white;
+      }
+    }
+  }
+
+  @include breakpoint(mobile) {
+    border-radius: 1.6rem;
+
+    &.active {
+      background-color: var(--primary-color);
+      color: white;
+
+      .abilities__card-btn {
+        color: white;
+      }
+    }
+  }
+}
+
+.abilities__card-inner {
+  padding: 7rem 4rem;
+  position: relative;
+  @include breakpointMF(small-tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 2.4rem;
+    align-items: flex-start;
+  }
+
+  @include breakpoint(mobile) {
+    padding: 2.4rem;
+    padding-left: 6rem;
+  }
+}
+
+.abilities__card-btn {
+  grid-column: 1 / 2;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.12rem;
+  transition: color 0.2s;
+  color: var(--primary-color);
+  text-align: left;
+  position: static;
+
+  svg {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    fill: currentColor;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.06rem;
+    pointer-events: all;
+
+    svg {
+      position: absolute;
+      left: 2.8rem;
+      top: 2.9rem;
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+  }
+}
+
+.abilities__card-content {
+  @include breakpointMF(small-tablet) {
+    grid-column: 2 / 3;
+  }
+
+  @include breakpoint(mobile) {
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.abilities__card-content-inner {
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.2rem;
+    padding-top: 1.2rem;
+  }
+}
+
+.abilities__card-text {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.072rem;
+  margin-bottom: 4rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    margin-bottom: 3.2rem;
+  }
+}
+
+.abilities__card-list {
+  grid-gap: 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  @include breakpoint(mobile) {
+    grid-gap: 1rem;
+    grid-row-gap: 3.2rem;
+  }
+}
+
+.abilities__card-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  @include breakpoint(mobile) {
+    gap: 0.4rem;
+  }
+}
+
+.abilities__card-feature-amount {
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: -0.12rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.048rem;
+  }
+}
+
+.abilities__card-feature-text {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+
+  @include breakpoint(mobile) {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}

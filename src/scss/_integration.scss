@@ -5,11 +5,17 @@
     [content-end] 1fr [main-end];
   grid-gap: var(--content-padding, 0);
   margin-bottom: 20rem;
-  overflow: hidden;
+
+  &--standalone {
+    margin-bottom: 16rem;
+  }
 
   @include breakpoint(mobile) {
     margin-bottom: 9.5rem;
-    overflow: hidden;
+
+    &--standalone {
+      margin-bottom: 4rem;
+    }
   }
 }
 
@@ -122,6 +128,9 @@
 
 .integration__stages-slider {
   margin-top: 8rem;
+  &:nth-child(2) {
+    margin-top: 0;
+  }
 
   @include breakpoint(mobile) {
     margin-top: 4rem;
@@ -141,6 +150,14 @@
 
     @include breakpoint(mobile) {
       width: 17.5rem;
+    }
+  }
+
+  &--wide {
+    .swiper-slide {
+      @include breakpoint(mobile) {
+        width: 22rem;
+      }
     }
   }
 }
@@ -228,6 +245,39 @@
   font-style: normal;
   font-weight: 400;
   line-height: 135%;
+  padding-right: 2rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
+
+.integration__stages-slider-card-title {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.048rem;
+  margin-bottom: 1rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.036rem;
+    margin-bottom: 0.6rem;
+  }
+}
+
+.integration__stages-slider-card-text-inner {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
 
   @include breakpoint(mobile) {
     font-size: 1.4rem;

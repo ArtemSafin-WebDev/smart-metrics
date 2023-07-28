@@ -31,6 +31,10 @@ import accordions from "./accordions";
 import gallery from "./gallery";
 import demo from "./demo";
 import otherCases from "./other-cases";
+import solutionHeader from "./solution-header";
+import abilities from "./abilities";
+import dates from "./dates";
+import faq from "./faq";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -65,6 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
   gallery();
   demo();
   otherCases();
+  solutionHeader();
+  abilities();
+  dates();
+  faq();
 });
 
 window.addEventListener("load", () => {

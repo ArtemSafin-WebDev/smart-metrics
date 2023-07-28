@@ -1,0 +1,187 @@
+.dates {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 16rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 6.8rem;
+  }
+}
+
+.dates__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+  border-radius: 3.2rem;
+  background: #f2f5f8;
+  padding: 4rem 6rem;
+
+  @include breakpointMF(small-tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 2.4rem;
+  }
+
+  @include breakpoint(mobile) {
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+.dates__text-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 57rem;
+  padding-top: 1rem;
+
+  @include breakpoint(mobile) {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+.dates__heading {
+  @include sectionHeading;
+  margin-bottom: 4rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 1.4rem;
+  }
+}
+
+.dates__text {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 135%;
+  margin-bottom: 6rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    margin-bottom: 4rem;
+  }
+}
+
+.dates__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 2.4rem;
+  margin-bottom: 4rem;
+
+  @include breakpoint(mobile) {
+    grid-gap: 1.2rem;
+    grid-row-gap: 2.4rem;
+    margin-bottom: 2.8rem;
+  }
+}
+
+.dates__card {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpointMF(small-tablet) {
+    padding-left: 6rem;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 4.8rem;
+      height: 3.8rem;
+      top: 0.5rem;
+      left: 0;
+      background-image: url("../images/decor/blue-mark.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  @include breakpoint(mobile) {
+    gap: 0.4rem;
+  }
+}
+
+.dates__card-amount {
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: -0.102rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.048rem;
+    &::before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      width: 2.4rem;
+      height: 1.9rem;
+      margin-top: -0.3rem;
+      background-image: url("../images/decor/blue-mark.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.dates__card-text {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+
+  @include breakpoint(mobile) {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+}
+
+.dates__link {
+  @include blueBtn;
+
+  @include breakpointMF(small-tablet) {
+    margin-top: auto;
+  }
+}
+
+.dates__image-wrapper {
+  position: relative;
+  border-radius: 1.6rem;
+  overflow: hidden;
+
+  @include breakpointMF(small-tablet) {
+    align-self: flex-start;
+  }
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 79%;
+    @include breakpoint(mobile) {
+      padding-bottom: 92.8%;
+    }
+  }
+}
+
+.dates__image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
