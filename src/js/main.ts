@@ -35,6 +35,7 @@ import solutionHeader from "./solution-header";
 import abilities from "./abilities";
 import dates from "./dates";
 import faq from "./faq";
+import consulation from "./consultation";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -73,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   abilities();
   dates();
   faq();
+  consulation();
 });
 
 window.addEventListener("load", () => {

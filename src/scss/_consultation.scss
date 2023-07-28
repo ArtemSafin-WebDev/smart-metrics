@@ -1,0 +1,344 @@
+.consultation {
+  display: grid;
+  grid-template-columns:
+    [main-start] 1fr [content-start] minmax(0, var(--container-width, 0))
+    [content-end] 1fr [main-end];
+  grid-gap: var(--content-padding, 0);
+  margin-bottom: 16rem;
+  background-color: var(--primary-color);
+  color: white;
+  background-image: url("../images/decor/consultation.svg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: left top;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 6.8rem;
+    background-image: url("../images/decor/consultation-mobile.svg");
+    background-size: 100% auto;
+  }
+}
+
+.consultation__content {
+  grid-column-start: content-start;
+  grid-column-end: content-end;
+  padding-bottom: 13rem;
+  padding-top: 11.4rem;
+
+  @include breakpointMF(small-tablet) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-gap: 2.4rem;
+  }
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 0;
+  }
+}
+
+.consultation__text-content {
+  @include breakpointMF(small-tablet) {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    grid-column: 1 / 8;
+  }
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.consultation__form-wrapper {
+  @include breakpointMF(small-tablet) {
+    grid-column: 8 / 12;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.consultation__heading {
+  font-size: 10rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.3rem;
+
+  @include breakpoint(mobile) {
+    font-size: 4.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.088rem;
+    margin-bottom: 2.4rem;
+  }
+}
+
+.consultation__contacts {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+
+  @include breakpoint(mobile) {
+    gap: 1.6rem;
+    order: 10;
+    margin-top: 5rem;
+  }
+}
+
+.consultation__contacts-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.072rem;
+  gap: 1.2rem;
+  transition: text-decoration-color 0.2s;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+
+  svg {
+    flex-shrink: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: currentColor;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration-color: white;
+    }
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.048rem;
+    gap: 0.8rem;
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
+}
+
+.consultation__form-heading {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.072rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.032rem;
+    margin-bottom: 3.2rem;
+  }
+}
+
+.consultation__fields {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  @include breakpoint(mobile) {
+    gap: 0.8rem;
+    margin-bottom: 3.6rem;
+  }
+}
+
+.consultation__field {
+  position: relative;
+
+  .validation-error {
+    position: absolute;
+    right: 2.8rem;
+    top: 3.6rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    width: max-content;
+    max-width: calc(100% - 2.8rem * 2);
+    background-color: #fff;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.4rem 0px 0.4rem 0.4rem;
+    border: 0.5px solid #dfe4ea;
+    background: #fff;
+    color: var(--text-color);
+    z-index: 10;
+    pointer-events: none;
+
+    @include breakpoint(mobile) {
+      font-size: 1.2rem;
+      padding: 0.4rem;
+      top: 2.8rem;
+    }
+  }
+}
+
+.consultation__label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.consultation__input {
+  font: inherit;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  padding: 0 1.6rem;
+  padding-bottom: 0.8rem;
+  padding-top: 2.4rem;
+  border-radius: 1.2rem;
+  color: white;
+  border: 1px solid transparent;
+  transition: border-color 0.2s, background-color 0.2s;
+  background: rgba(255, 255, 255, 0.2);
+  &::placeholder {
+    opacity: 0;
+  }
+
+  &:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  &.not-valid {
+    border-color: #f60a18;
+    background: rgba(246, 10, 24, 0.1);
+    background-image: url("../images/form-error.svg");
+    background-size: 2.4rem 2.4rem;
+    background-repeat: no-repeat;
+    background-position: right 1.6rem top 1.5rem;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+
+    &.not-valid {
+      background-size: 2.4rem 2.4rem;
+      background-position: right 1.6rem top 1.3rem;
+    }
+  }
+}
+
+.consultation__label-text {
+  position: absolute;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  color: white;
+  transition: transform 0.2s, color 0.2s;
+  left: 1.6rem;
+  top: 1.7rem;
+  transform-origin: left center;
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    top: 1.7rem;
+  }
+}
+
+.consultation__input:focus ~ .consultation__label-text,
+.consultation__input:not(:placeholder-shown) ~ .consultation__label-text {
+  transform: translateY(-1.1rem) scale(0.8);
+
+  color: rgba(white, 0.5);
+
+  @include breakpoint(mobile) {
+    transform: translateY(-1.25rem) scale(0.8);
+  }
+}
+
+.consultation__input.not-valid ~ .consultation__label-text {
+  color: #f60a18;
+}
+
+.consultation__submit-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1.6rem;
+  }
+}
+
+.consultation__submit {
+  @include whiteBtn;
+  align-self: stretch;
+  padding-left: 7rem;
+  padding-right: 7rem;
+
+  @include breakpoint(mobile) {
+    align-self: center;
+    flex-shrink: 0;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.consultation__policy {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  color: rgba(255, 255, 255, 0.3);
+
+  @include breakpoint(mobile) {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: color 0.2s, text-decoration-color 0.2s;
+    &:link,
+    &:visited {
+      color: white;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration-color: white;
+      }
+    }
+  }
+}
