@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function gallery() {
+  const mql = window.matchMedia("(max-width: 640px)");
   const elements = Array.from<HTMLInputElement>(
     document.querySelectorAll(".js-gallery")
   );
@@ -24,33 +25,6 @@ export default function gallery() {
     const pagination = element.querySelector<HTMLElement>(
       ".gallery__pagination"
     );
-
-    const mainOptions: SwiperOptions = {
-      slidesPerView: 1,
-      speed: 600,
-      modules: [Pagination, Navigation, Controller],
-      longSwipesRatio: 0.2,
-      spaceBetween: 8,
-      pagination: {
-        type: "bullets",
-        el: pagination,
-        clickable: true,
-      },
-      navigation: {
-        prevEl: element.querySelector<HTMLButtonElement>(
-          ".gallery__arrow--prev"
-        ),
-        nextEl: element.querySelector<HTMLButtonElement>(
-          ".gallery__arrow--next"
-        ),
-      },
-      breakpoints: {
-        641: {
-          slidesPerView: "auto",
-          spaceBetween: 0,
-        },
-      },
-    };
 
     const textOptions: SwiperOptions = {
       speed: 600,
@@ -71,15 +45,63 @@ export default function gallery() {
     let mainInstance: Swiper | null = null;
     let textInstance: Swiper | null = null;
 
-    if (textContainer) {
-      textInstance = new Swiper(textContainer, textOptions);
-    }
+    function initialize(mobile = false) {
+      const mainOptions: SwiperOptions = {
+        slidesPerView: mobile ? "auto" : 1,
+        speed: 600,
+        modules: [Pagination, Navigation, Controller],
+        longSwipesRatio: 0.2,
+        spaceBetween: 0,
+        pagination: {
+          type: "bullets",
+          el: pagination,
+          clickable: true,
+        },
+        navigation: {
+          prevEl: element.querySelector<HTMLButtonElement>(
+            ".gallery__arrow--prev"
+          ),
+          nextEl: element.querySelector<HTMLButtonElement>(
+            ".gallery__arrow--next"
+          ),
+        },
+      };
+      if (textContainer) {
+        textInstance = new Swiper(textContainer, textOptions);
+      }
 
-    if (mainContainer) {
-      mainInstance = new Swiper(mainContainer, mainOptions);
-      if (textInstance) {
-        mainInstance.controller.control = textInstance;
+      if (mainContainer) {
+        mainInstance = new Swiper(mainContainer, mainOptions);
+        if (textInstance) {
+          mainInstance.controller.control = textInstance;
+        }
       }
     }
+
+    function destroy() {
+      if (mainInstance) {
+        mainInstance?.destroy();
+        mainInstance = null;
+      }
+
+      if (textInstance) {
+        textInstance?.destroy();
+        textInstance = null;
+      }
+    }
+
+    const handleWidthChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) {
+        destroy();
+        initialize(true);
+      } else {
+        destroy();
+        initialize();
+      }
+    };
+
+    mql.addEventListener("change", handleWidthChange);
+
+    handleWidthChange(mql);
   });
 }
