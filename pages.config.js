@@ -9,6 +9,7 @@ import contacts from "./pages-data/contacts";
 import newsSingle from "./pages-data/newsSingle";
 import casesSingle from "./pages-data/casesSingle";
 import solutionSingle from "./pages-data/solutionSingle";
+import about from "./pages-data/about";
 
 const pagesConfig = {
   ...home,
@@ -22,6 +23,7 @@ const pagesConfig = {
   ...newsSingle,
   ...casesSingle,
   ...solutionSingle,
+  ...about,
 };
 
 export default pagesConfig;

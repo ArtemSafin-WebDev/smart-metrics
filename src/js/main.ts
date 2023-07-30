@@ -36,6 +36,11 @@ import abilities from "./abilities";
 import dates from "./dates";
 import faq from "./faq";
 import consulation from "./consultation";
+import ourTeam from "./ourTeam";
+import certificates from "./certificates";
+import aboutHeader from "./about-header";
+import aboutCompany from "./about-company";
+import history from "./history";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
@@ -75,6 +80,11 @@ document.addEventListener("DOMContentLoaded", () => {
   dates();
   faq();
   consulation();
+  ourTeam();
+  certificates();
+  aboutHeader();
+  aboutCompany();
+  history();
 });
 
 window.addEventListener("load", () => {
