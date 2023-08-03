@@ -106,6 +106,15 @@
   object-fit: cover;
 }
 
+.about__video-preview-clip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .about__manager {
   border-radius: 3.2rem;
   background: #f2f5f8;

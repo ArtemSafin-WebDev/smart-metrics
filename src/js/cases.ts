@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ANIMATION_START } from "./constants";
+import { ANIMATION_DELAY, ANIMATION_START } from "./constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +13,7 @@ export default function cases() {
   const listItems = Array.from(cases.querySelectorAll(".cases__list-item"));
   const btn = cases.querySelector(".cases__load-more");
   const tl = gsap.timeline({
-    delay: 1,
+    delay: ANIMATION_DELAY,
     scrollTrigger: {
       trigger: cases,
       start: ANIMATION_START,

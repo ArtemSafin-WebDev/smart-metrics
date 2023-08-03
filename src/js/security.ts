@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ANIMATION_START } from "./constants";
+import { ANIMATION_DELAY, ANIMATION_START } from "./constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +13,7 @@ export default function security() {
   const textContent = security.querySelector(".security__text-content-inner");
 
   const tl = gsap.timeline({
-    delay: 0.5,
+    delay: ANIMATION_DELAY,
     scrollTrigger: {
       trigger: security,
       start: ANIMATION_START,

@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ANIMATION_START } from "./constants";
+import { ANIMATION_DELAY, ANIMATION_START } from "./constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +13,7 @@ export default function solutionsArchive() {
     awards.querySelectorAll(".solutions-archive__list-item")
   );
   const tl = gsap.timeline({
-    delay: 1,
+    delay: ANIMATION_DELAY,
     scrollTrigger: {
       trigger: awards,
       start: ANIMATION_START,

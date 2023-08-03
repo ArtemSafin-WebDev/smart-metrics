@@ -154,7 +154,7 @@
 
 @include breakpointMF(small-tablet) {
   .intro__images-col:nth-child(1) {
-    padding-top: 3.4rem;
+    // padding-top: 3.4rem;
     .intro__images-item:nth-child(2) {
       max-width: 23rem;
       align-self: flex-end;

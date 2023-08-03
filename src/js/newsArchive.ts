@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ANIMATION_START } from "./constants";
+import { ANIMATION_DELAY, ANIMATION_START } from "./constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +16,7 @@ export default function newsArchive() {
   );
   const btn = newsArchive.querySelector(".news-archive__load-more");
   const tl = gsap.timeline({
-    delay: 1,
+    delay: ANIMATION_DELAY,
     scrollTrigger: {
       trigger: newsArchive,
       start: ANIMATION_START,
