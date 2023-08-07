@@ -2,10 +2,11 @@
     <div class="about__content">
         <div class="about__video">
             <a href="/video/full-video.mp4" class="about__video-wrapper" data-fancybox="">
-                <img src="/images/video-preview.webp" alt="" class="about__video-preview">
+                {{!-- <img src="/images/video-preview.webp" alt="" class="about__video-preview"> --}}
 
 
-
+                <video src="/video/preview-video.mp4" playsinline="" autoplay="" muted="" loop=""
+                    class="about__video-preview-clip"></video>
                 <div class="about__video-info">
                     <svg width="14" height="14" aria-hidden="true">
                         <use xlink:href="#play"></use>
