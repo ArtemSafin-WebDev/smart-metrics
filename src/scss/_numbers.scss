@@ -42,11 +42,11 @@
 }
 
 .numbers__roi {
-  min-height: 52rem;
+  min-height: 36rem;
   border-radius: 1.6rem;
   background: #f2f5f8;
   position: relative;
-  padding: 4.2rem 6rem;
+  padding: 4rem 6rem;
   display: flex;
   flex-direction: column;
 
@@ -81,7 +81,7 @@
 }
 
 .numbers__roi-percentage {
-  font-size: 18rem;
+  font-size: 12rem;
   font-style: normal;
   font-weight: 500;
   line-height: 110%;
@@ -98,10 +98,11 @@
 
 .numbers__roi-text {
   max-width: 24rem;
-  font-size: 1.8rem;
+
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 135%;
+  line-height: 140%;
 
   @include breakpoint(mobile) {
     font-size: 1.6rem;
@@ -115,14 +116,16 @@
 }
 
 .numbers__revenue {
-  min-height: 52rem;
-  display: flex;
-  flex-direction: column;
+  min-height: 36rem;
+
   border-radius: 1.6rem;
   border: 1px solid #dfe4ea;
-  padding: 5.2rem 6.4rem;
-  padding-bottom: 8.2rem;
-  gap: 1.2rem;
+  padding: 4rem 6rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 5.4rem;
+  grid-row-gap: 2.5rem;
+  grid-template-areas: "percentage text" "comparison comparison";
 
   @include breakpointMF(small-tablet) {
     grid-row: 1 / 2;
@@ -130,6 +133,8 @@
   }
 
   @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
     border-radius: 1.6rem;
     border: 1px solid #dfe4ea;
     padding: 2.4rem;
@@ -140,11 +145,16 @@
 }
 
 .numbers__revenue-percentage {
-  font-size: 10rem;
+  font-size: 8.6rem;
   font-style: normal;
   font-weight: 500;
   line-height: 110%;
-  letter-spacing: -0.3rem;
+  letter-spacing: -0.258rem;
+
+  @include breakpointMF(small-tablet) {
+    grid-area: percentage;
+    align-self: center;
+  }
 
   @include breakpoint(mobile) {
     font-size: 6.8rem;
@@ -158,11 +168,16 @@
 
 .numbers__revenue-text {
   max-width: 38rem;
-  font-size: 1.8rem;
 
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 135%;
+  line-height: 140%;
+
+  @include breakpointMF(small-tablet) {
+    grid-area: text;
+    align-self: center;
+  }
 
   @include breakpoint(mobile) {
     font-size: 1.6rem;
@@ -178,7 +193,11 @@
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.2rem;
+
+  @include breakpointMF(small-tablet) {
+    grid-area: comparison;
+  }
 
   @include breakpoint(mobile) {
     margin-bottom: 2.4rem;
@@ -187,9 +206,9 @@
 
 .numbers__revenue-comparison-item {
   display: grid;
-  grid-template-columns: 15rem 1fr;
-  grid-gap: 2rem;
-  align-items: flex-start;
+  grid-template-columns: 1fr;
+  grid-gap: 0.8rem;
+  align-items: stretch;
 
   @include breakpoint(mobile) {
     display: flex;
@@ -201,10 +220,14 @@
 }
 
 .numbers__revenue-comparison-item-key {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 135%;
+  line-height: 140%;
+
+  br {
+    display: none;
+  }
 
   em {
     font-style: normal;
@@ -227,8 +250,9 @@
 
 .numbers__revenue-comparison-item-value {
   display: grid;
-  grid-template-columns: repeat(15, 1fr);
+  grid-template-columns: repeat(18, 1fr);
   grid-gap: 0.2rem;
+  max-width: 38.4rem;
 }
 
 .numbers__revenue-comparison-item-cell {
@@ -254,12 +278,12 @@
 }
 
 .numbers__check {
-  min-height: 49rem;
+  min-height: 36rem;
   border-radius: 1.6rem;
   border: 1px solid #dfe4ea;
   display: flex;
   flex-direction: column;
-  padding: 5rem;
+  padding: 4rem;
   padding-bottom: 0;
   align-items: center;
   text-align: center;
@@ -315,7 +339,7 @@
 
 .numbers__check-image {
   margin-top: auto;
-  width: 24rem;
+  width: 18rem;
   max-width: 100%;
 
   @include breakpoint(mobile) {
@@ -327,11 +351,11 @@
   border-radius: 1.6rem;
   background: #f2f5f8;
 
-  padding: 4.5rem 6.4rem;
+  padding: 4rem 6rem;
   padding-right: 4.2rem;
   padding-bottom: 3rem;
-  gap: 1.2rem;
-  min-height: 49rem;
+  gap: 1rem;
+  min-height: 36rem;
   display: flex;
   flex-direction: column;
 
@@ -350,11 +374,11 @@
 }
 
 .numbers__accidents-percentage {
-  font-size: 10rem;
+  font-size: 6.4rem;
   font-style: normal;
   font-weight: 500;
   line-height: 110%;
-  letter-spacing: -0.3rem;
+  letter-spacing: -0.128rem;
 
   @include breakpoint(mobile) {
     font-size: 6.8rem;
@@ -368,10 +392,11 @@
 
 .numbers__accidents-text {
   max-width: 26rem;
-  font-size: 1.8rem;
+
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 135%;
+  line-height: 140%;
 
   @include breakpoint(mobile) {
     font-size: 1.6rem;
@@ -388,7 +413,7 @@
   display: flex;
   align-items: flex-end;
   align-self: flex-end;
-  margin-top: -11rem;
+  margin-top: -15rem;
   margin-left: auto;
 
   @include breakpoint(mobile) {
@@ -398,8 +423,8 @@
 }
 
 .numbers__accidents-small-circle {
-  width: 16.7rem;
-  height: 16.7rem;
+  width: 13.5rem;
+  height: 13.5rem;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
@@ -420,14 +445,14 @@
 }
 
 .numbers__accidents-large-circle {
-  width: 32.4rem;
-  height: 32.4rem;
+  width: 25.6rem;
+  height: 25.6rem;
   border-radius: 50%;
   position: relative;
   overflow: hidden;
-  margin-bottom: -1rem;
+  margin-bottom: 0rem;
   border: 1rem solid #f2f5f8;
-  margin-left: -8rem;
+  margin-left: -6rem;
 
   @include breakpoint(mobile) {
     width: 21rem;
@@ -451,9 +476,8 @@
   flex-direction: column;
   border-radius: 1.6rem;
   background: #f2f5f8;
-  padding: 5rem 6.2rem;
-  padding-bottom: 8rem;
-  gap: 1.2rem;
+  padding: 4rem 6rem;
+  gap: 1rem;
   align-items: center;
   text-align: center;
 
@@ -486,11 +510,10 @@
 }
 
 .numbers__clients-text {
-  font-size: 1.8rem;
-
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 135%;
+  line-height: 140%;
 
   @include breakpoint(mobile) {
     font-size: 1.2rem;
@@ -508,9 +531,11 @@
   background: white;
   box-shadow: 0px 3.3rem 3.4rem 0px rgba(49, 78, 122, 0.05),
     0px 0.4rem 1.3rem 0px rgba(49, 78, 122, 0.06);
+
   margin-top: auto;
-  width: 15.8rem;
+  width: 10rem;
   max-width: 100%;
+  margin-bottom: 2rem;
   &::before {
     content: "";
     display: block;
