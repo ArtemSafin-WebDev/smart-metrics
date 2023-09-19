@@ -50,6 +50,7 @@
   background: #f2f5f8;
   gap: 1.2rem;
   min-height: 27rem;
+  flex-grow: 1;
 
   @include breakpoint(mobile) {
     min-height: 15.4rem;
