@@ -341,12 +341,25 @@ textarea.modal__input {
   top: 1.7rem;
   transform-origin: left center;
 
+  textarea ~ & {
+    padding: 0.4rem 0;
+    top: 1.2rem;
+    background: #f2f5f8;
+    margin-top: -0.3rem;
+  }
+
   @include breakpoint(mobile) {
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
     line-height: 130%;
     top: 1.7rem;
+
+    textarea ~ & {
+      top: 1.2rem;
+      padding: 0.3rem 0;
+      margin-top: 0;
+    }
   }
 }
 
