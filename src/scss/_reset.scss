@@ -15,6 +15,7 @@ html {
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
   scroll-padding-top: 10rem;
+  overflow: auto;
   @include breakpoint(mobile) {
     font-size: 10px;
   }
@@ -31,7 +32,7 @@ body {
   font-family: var(--onest);
   overscroll-behavior: none;
   overflow-anchor: none;
-  scrollbar-gutter: stable;
+  // scrollbar-gutter: stable;
   // scroll-behavior: smooth;
   // scroll-padding-top: 10rem;
 }
