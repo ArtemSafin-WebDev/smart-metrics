@@ -13,6 +13,10 @@
   transition: background-color 0.2s, color 0.2s;
   color: var(--text-color);
 
+  @include breakpointMF(small-tablet) {
+    width: 100svw;
+  }
+
   @include breakpoint(mobile) {
     &::before {
       content: "";
