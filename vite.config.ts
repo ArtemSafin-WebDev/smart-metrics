@@ -2,7 +2,7 @@ import handlebars from "vite-plugin-handlebars";
 import { resolve } from "path";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import path from "path";
-import glob from "glob";
+import { glob } from "glob";
 import globalContext from "./pages-data/globalContext";
 import pagesConfig from "./pages.config";
 
@@ -14,7 +14,7 @@ export default {
         chunkFileNames: `assets/main.js`,
         assetFileNames: `assets/main.[ext]`,
       },
-      input: glob.sync(path.resolve(__dirname, "*.html")),
+      input: glob.sync("*.html").map((file) => path.resolve(__dirname, file)),
     },
   },
   server: {
