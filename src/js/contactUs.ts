@@ -1,6 +1,5 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ANIMATION_START } from "./constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +12,7 @@ export default function contactUs() {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: contactUs,
-      start: ANIMATION_START,
+      start: "top bottom",
     },
   });
 
