@@ -42,6 +42,11 @@ import aboutHeader from "./about-header";
 import aboutCompany from "./about-company";
 import history from "./history";
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world");
   fixedHeader();
@@ -63,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
   partners();
   awards();
   news();
-  contactUs();
   solutionsArchive();
   tariffsPage();
   documentation();
@@ -85,8 +89,18 @@ document.addEventListener("DOMContentLoaded", () => {
   aboutHeader();
   aboutCompany();
   history();
+  contactUs();
 });
 
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
+
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 500);
 });
+
+//@ts-ignore
+window.refresh = () => {
+  ScrollTrigger.refresh();
+};

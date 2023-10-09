@@ -12,6 +12,7 @@ export default function contactUs() {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: contactUs,
+      markers: false,
       start: "top bottom",
     },
   });
