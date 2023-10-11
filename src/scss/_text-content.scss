@@ -11,8 +11,8 @@
     line-height: 130%;
   }
 
-  h1:where(:not([class])),
-  h2:where(:not([class])) {
+  & > h1,
+  & > h2 {
     font-size: 5.2rem;
     font-style: normal;
     font-weight: 500;
@@ -33,10 +33,10 @@
     }
   }
 
-  h3:where(:not([class])),
-  h4:where(:not([class])),
-  h5:where(:not([class])),
-  h6:where(:not([class])) {
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6 {
     font-size: 3rem;
     font-style: normal;
     font-weight: 500;
@@ -57,7 +57,7 @@
     }
   }
 
-  img:where(:not([class])) {
+  & > img {
     display: block;
     width: 100%;
     height: auto;
@@ -72,7 +72,7 @@
     }
   }
 
-  ol:where(:not([class])) {
+  & > ol {
     margin-top: 2.4rem;
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@
     &:first-child {
       margin-top: 0;
     }
-    & > li:where(:not([class])) {
+    & > li {
       &::before {
         content: counter(ordered-list) ".";
         color: var(--primary-color);
@@ -93,7 +93,7 @@
     }
   }
 
-  ul:where(:not([class])) {
+  & > ul {
     margin-top: 2.4rem;
     display: flex;
     flex-direction: column;
@@ -107,7 +107,7 @@
       margin-top: 0;
     }
 
-    & > li:where(:not([class])) {
+    & > li {
       padding-left: 2.2rem;
       position: relative;
 
@@ -127,7 +127,7 @@
     }
   }
 
-  figure:where(:not([class])) {
+  & > figure {
     margin-top: 3.2rem;
     @include breakpoint(mobile) {
       margin-top: 2.4rem;
@@ -136,7 +136,10 @@
       margin-top: 0;
     }
 
-    figcaption:where(:not([class])) {
+    & > img {
+      border-radius: 1.6rem;
+    }
+    & > figcaption {
       font-size: 1.6rem;
       font-style: normal;
       font-weight: 400;
@@ -155,43 +158,11 @@
     }
   }
 
-  p:where(:not([class])) {
+  & > p {
     margin-top: 2.4rem;
 
     @include breakpoint(mobile) {
       margin-top: 1.6rem;
-    }
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
-  .annotation {
-    font-size: 3rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%;
-    letter-spacing: -0.09rem;
-    margin-top: 3.2rem;
-
-    @include breakpoint(mobile) {
-      font-size: 1.8rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 130%;
-      letter-spacing: -0.036rem;
-    }
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
-  .callback-btn {
-    @include blueBtn;
-    margin-top: 3.2rem;
-
-    @include breakpoint(mobile) {
-      margin-top: 2.4rem;
     }
     &:first-child {
       margin-top: 0;

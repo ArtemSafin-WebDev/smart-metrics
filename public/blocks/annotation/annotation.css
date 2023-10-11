@@ -1,0 +1,24 @@
+.annotation {
+  margin: 0;
+  padding: 0;
+  font-size: calc(3rem * var(--scale-factor, 1));
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: calc(-0.09rem * var(--scale-factor, 1));
+  margin-top: calc(3.2rem * var(--scale-factor, 1));
+}
+
+.annotation:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .annotation {
+    font-size: calc(1.8rem * var(--scale-factor, 1));
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: calc(-0.036rem * var(--scale-factor, 1));
+  }
+}

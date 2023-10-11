@@ -1,0 +1,39 @@
+.image {
+  margin-top: calc(3.2rem * var(--scale-factor, 1));
+}
+
+@media (max-width: 640px) {
+  .image {
+    margin-top: calc(2.4rem * var(--scale-factor, 1));
+  }
+}
+
+.image:first-child {
+  margin-top: 0;
+}
+
+.image__caption {
+  font-size: calc(1.6rem * var(--scale-factor, 1));
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  color: rgba(#000d1a, 0.3);
+  text-align: center;
+  margin-top: calc(1.6rem * var(--scale-factor, 1));
+}
+
+.image__picture {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .image__caption {
+    font-size: calc(1rem * var(--scale-factor, 1));
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    margin-top: calc(0.8rem * var(--scale-factor, 1));
+  }
+}

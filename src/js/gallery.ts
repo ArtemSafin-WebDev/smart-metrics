@@ -9,12 +9,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function gallery() {
-  const mql = window.matchMedia("(max-width: 640px)");
   const elements = Array.from<HTMLInputElement>(
     document.querySelectorAll(".js-gallery")
   );
+  const mql = window.matchMedia("(max-width: 640px)");
 
-  elements.forEach((element) => {
+  function init(element: HTMLElement) {
     const mainContainer = element.querySelector<HTMLElement>(
       ".gallery__main-slider .swiper"
     );
@@ -103,5 +103,21 @@ export default function gallery() {
     mql.addEventListener("change", handleWidthChange);
 
     handleWidthChange(mql);
-  });
+  }
+
+  elements.forEach((element) => init(element));
+
+  function initializeACFSlider($block: HTMLElement[]) {
+    console.log("Native slider element", $block[0]);
+    init($block[0]);
+  }
+
+  //@ts-ignore
+  if (window.acf) {
+    //@ts-ignore
+    window.acf.addAction(
+      "render_block_preview/type=gallery-slider",
+      initializeACFSlider
+    );
+  }
 }
