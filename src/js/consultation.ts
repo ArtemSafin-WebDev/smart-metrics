@@ -54,6 +54,11 @@ export default function consulation() {
           console.log(res.data);
           if (res.data.status === "mail_sent") {
             console.log("Successs");
+            form.classList.add("submitted");
+
+            setTimeout(() => {
+              form.classList.remove("submitted");
+            }, 1000);
           } else {
             throw new Error("Mail has not been sent");
           }
