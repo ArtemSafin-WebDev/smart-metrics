@@ -132,7 +132,7 @@
 }
 @media (hover: hover) {
   .gallery__arrow:not(.swiper-button-disabled):hover svg {
-    fill: var(--primary-color);
+    fill: #418dd9;
   }
 }
 

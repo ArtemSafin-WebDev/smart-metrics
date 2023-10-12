@@ -26,6 +26,10 @@ export default function forms() {
           })
           .then((res) => {
             console.log(res.data);
+            form.classList.add("submitted");
+            setTimeout(() => {
+              form.classList.remove("submitted");
+            }, 2000);
             if (form) {
               form.reset();
             }

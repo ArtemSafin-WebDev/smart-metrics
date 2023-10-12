@@ -2,22 +2,24 @@
   flex-shrink: 0;
   white-space: nowrap;
   user-select: none;
-  font-size: 1.8rem;
+  font-size: calc(1.8rem * var(--scale-factor, 1));
   font-weight: 500;
   line-height: 145%;
   transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-  padding: 2.2rem 4rem;
-  border-radius: 99.9rem;
+  padding: calc(2.2rem * var(--scale-factor, 1))
+    calc(4rem * var(--scale-factor, 1));
+  border-radius: calc(99.9rem * var(--scale-factor, 1));
   align-self: flex-start;
   text-align: center;
   justify-self: flex-start;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  text-decoration: none;
+  background-color: #418dd9;
+  border: 1px solid #418dd9;
   color: white;
-  margin-top: 3.2rem;
+  margin-top: calc(3.2rem * var(--scale-factor, 1));
 }
 
 .callback-btn:link,
@@ -31,12 +33,13 @@
 
 @media (max-width: 640px) {
   .callback-btn {
-    font-size: 1.6rem;
+    font-size: calc(1.6rem * var(--scale-factor, 1));
     font-style: normal;
     font-weight: 500;
     line-height: 135%;
     letter-spacing: -0.048rem;
-    padding: 1.7rem 3.2rem;
-    margin-top: 2.4rem;
+    padding: calc(1.7rem * var(--scale-factor, 1))
+      calc(3.2rem * var(--scale-factor, 1));
+    margin-top: calc(2.4rem * var(--scale-factor, 1));
   }
 }

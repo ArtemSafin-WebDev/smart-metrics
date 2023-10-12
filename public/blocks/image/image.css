@@ -17,7 +17,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-  color: rgba(#000d1a, 0.3);
+  color: rgba(0, 13, 26, 0.3);
   text-align: center;
   margin-top: calc(1.6rem * var(--scale-factor, 1));
 }
@@ -26,6 +26,7 @@
   width: 100%;
   display: block;
   height: auto;
+  border-radius: calc(1.6rem * var(--scale-factor, 1));
 }
 
 @media (max-width: 640px) {

@@ -193,7 +193,8 @@
   font-weight: 500;
   line-height: 115%;
   padding: 3.4rem;
-  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s, opacity 0.2s,
+    visibility 0.2s;
 
   @media (hover: hover) {
     &:hover {
