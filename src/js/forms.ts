@@ -29,7 +29,7 @@ export default function forms() {
             form.classList.add("submitted");
             setTimeout(() => {
               form.classList.remove("submitted");
-            }, 2000);
+            }, 5000);
             if (form) {
               form.reset();
             }

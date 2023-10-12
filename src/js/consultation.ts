@@ -58,7 +58,7 @@ export default function consulation() {
 
             setTimeout(() => {
               form.classList.remove("submitted");
-            }, 1000);
+            }, 5000);
           } else {
             throw new Error("Mail has not been sent");
           }
