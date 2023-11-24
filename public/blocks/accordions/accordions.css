@@ -63,6 +63,7 @@
   line-height: 145%;
   gap: calc(3rem * var(--scale-factor, 1));
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 @media (min-width: 641px) {

@@ -23,7 +23,6 @@
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-gap: 2.4rem;
-    align-items: flex-start;
   }
 
   @include breakpoint(mobile) {
